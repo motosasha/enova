@@ -1,12 +1,12 @@
 :root {
 	--mint_primary: #33cc99;
-	--mint_primary_25p: #33cc99;
+	--mint_primary_25p: rgba(51, 204, 153, 0.25);
 	--mint_secondary: #66d9b3;
 	--mint_tertiary: #99e6cc;
 	--mint_quaternary: #ccf2e6;
 
 	--emerald_primary: #003333;
-	--emerald_primary_90p: #003333;
+	--emerald_primary_90p: rgba(0, 51, 51, 0.9);
 	--emerald_secondary: #406666;
 	--emerald_tertiary: #809999;
 	--emerald_quaternary: #bfcccc;
@@ -32,16 +32,7 @@
 	--font_base: var(--font_primary);
 	--font_primary: 'Roboto', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', Arial, sans-serif;
 
-	--shadow: 0 1.8rem 3.14rem rgba(7, 2, 0, 0.0168519);
-
-	//--screen_margin: 1.6rem;
-	//--container: calc(100% - (var(--screen_margin) * 2));
-	//@media screen and (min-width: $screen-t) {
-	//	--screen_margin: 4rem;
-	//}
-	//@media screen and (min-width: $screen-d) {
-	//	--screen_margin: 16.6667%;
-	//}
+	--shadow: 0 1rem 2rem rgba(102, 217, 179, 0.05), 0 0 1rem rgba(102, 217, 179, 0.1);
 
 	--body_bg: var(--color_white);
 	--body_color: var(--color_black);
@@ -52,3 +43,19 @@
 
 	--line_height_base: 100%;
 }
+
+$screen-m:      0 !default;
+$screen-t:      576px !default;
+$screen-ti:     768px !default;
+$screen-tl:     992px !default;
+$screen-d:      1280px !default;
+$screen-dl:     1440px !default;
+$screen-dxl:    1680px !default;
+
+$container-m:   100% !default;
+$container-t:   560px !default;
+$container-ti:  720px !default;
+$container-tl:  960px !default;
+$container-d:   1200px !default;
+$container-dl:  1400px !default;
+$container-dxl: 1600px !default;

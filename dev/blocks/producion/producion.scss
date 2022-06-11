@@ -1,0 +1,68 @@
+// В этом файле должны быть стили для БЭМ-блока producion, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.producion {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+	}
+	&__row {
+		margin: 0 0 2rem;
+		@media screen and (min-width: $screen-ti) {
+			margin-bottom: 3rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+	:is(.producion) &__title {
+		margin: 0;
+	}
+	&__slider {
+		margin: 0 -1.5rem 3rem;
+		position: relative;
+		@media screen and (min-width: $screen-t) {
+			margin: 0 -2rem 3rem;
+		}
+		@media screen and (min-width: $screen-ti) {
+			margin: 0 0 3rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin: 0;
+		}
+	}
+	&__slider-controls {
+		display: flex;
+		gap: 1rem;
+		margin-left: 3rem;
+	}
+	&__slider-arrow {
+		background: var(--mint_quaternary);
+		display: none;
+		margin: 0;
+		position: static;
+		transition: background .25s ease;
+		@media screen and (min-width: $screen-d) {
+			display: flex;
+		}
+		&:hover {
+			background: var(--mint_tertiary);
+		}
+	}
+	&__button {
+		display: none;
+		@media screen and (min-width: $screen-d) {
+			display: block;
+			margin-left: auto;
+		}
+		&_mobile {
+			display: block;
+			margin: 0 auto;
+			@media screen and (min-width: $screen-d) {
+				display: none;
+			}
+		}
+	}
+}

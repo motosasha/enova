@@ -14,10 +14,9 @@
 		}
 	}
 	&__icon {
+		display: block;
+		fill: inherit;
 		height: 4rem;
 		width: 4rem;
-		svg path {
-			fill: inherit;
-		}
 	}
 }

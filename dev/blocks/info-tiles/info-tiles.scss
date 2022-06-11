@@ -1,0 +1,62 @@
+// В этом файле должны быть стили для БЭМ-блока info-tiles, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.info-tiles {
+	color: var(--emerald_primary);
+	display: grid;
+	gap: .5rem;
+	grid-template-columns: 1fr 1fr;
+	width: 100%;
+	@media screen and (min-width: $screen-t) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	&__item {
+		background: var(--white_primary);
+		border-radius: .5rem;
+		display: flex;
+		flex-direction: column;
+		height: 15.5rem;
+		padding: 1.5rem;
+		position: relative;
+		@media screen and (min-width: $screen-ti) {
+			height: 18rem;
+			padding: 2rem;
+		}
+	}
+	&__label {
+		font-size: 1.2rem;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+		line-height: 1.25;
+		@media screen and (min-width: $screen-ti) {
+			font-size: 1.5rem;
+			line-height: 1;
+		}
+	}
+	&__title {
+		font-feature-settings: 'pnum' on, 'lnum' on;
+		font-size: 6rem;
+		font-weight: 700;
+		letter-spacing: -0.02em;
+		line-height: 1;
+		@media screen and (min-width: $screen-ti) {
+			font-size: 7.5rem;
+		}
+	}
+	&__descr {
+		font-size: 1.5rem;
+		letter-spacing: 0.01em;
+		line-height: 1;
+		margin-top: auto;
+	}
+	&__icon {
+		display: block;
+		fill: var(--mint_primary);
+		height: 3.5rem;
+		position: absolute;
+		right: 1rem;
+		top: 1rem;
+		width: 3.5rem;
+	}
+}

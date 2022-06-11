@@ -23,6 +23,11 @@
 		background: var(--mint_secondary);
 	}
 	&_secondary {
-		background: var(--color_grey);
+		background: none;
+		border: .1rem solid var(--mint_primary);
+		color: var(--black_primary);
+		font-weight: 400;
+		line-height: 1.428571;
+		padding: .9rem 1.9rem;
 	}
 }

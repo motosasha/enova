@@ -1,0 +1,12 @@
+//- Все примеси в этом файле должны начинаться c имени блока (services-tiles)
+
+mixin services-tiles(tiles)
+	.services-tiles
+		.services-tiles__item
+			img.services-tiles__logo(src='assets/logo__partner_spb.svg')
+			.services-tiles__descr Брокерские услуги на бирже СПбМТСБ
+		each tile in tiles
+			.services-tiles__item
+				svg.services-tiles__icon
+					use(xlink:href='img/svgSprite.svg#icon__line_' + tile.icon)
+				.services-tiles__descr!= tile.descr

@@ -1,0 +1,11 @@
+//- Все примеси в этом файле должны начинаться c имени блока (info-tiles)
+
+mixin info-tiles(items)
+	.info-tiles
+		each item in items
+			.info-tiles__item
+				.info-tiles__label Более
+				.info-tiles__title!= item.title
+				.info-tiles__descr!= item.descr
+				svg.info-tiles__icon
+					use(xlink:href='img/svgSprite.svg#icon__solid_' + item.icon)

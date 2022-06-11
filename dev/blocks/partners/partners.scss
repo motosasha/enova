@@ -1,0 +1,51 @@
+// В этом файле должны быть стили для БЭМ-блока partners, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.partners {
+	.section__inner {
+		@media screen and (min-width: $screen-d) {
+			padding-bottom: 10rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			padding-bottom: 12.5rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			padding-bottom: 15rem;
+		}
+	}
+	&__grid {
+		display: grid;
+		gap: .5rem 4rem;
+		grid-template-columns: 1fr 1fr;
+		padding: 0 2rem;
+		@media screen and (min-width: $screen-t) {
+			display: flex;
+			flex-wrap: wrap;
+			justify-content: center;
+		}
+		@media screen and (min-width: $screen-d) {
+			gap: 3rem 6rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			gap: 4rem 10rem;
+		}
+	}
+	&__item {
+		display: flex;
+		justify-content: center;
+		img {
+			height: 6rem;
+			width: auto;
+			@media screen and (min-width: $screen-ti) {
+				height: 9rem;
+			}
+			@media screen and (min-width: $screen-tl) {
+				height: 10rem;
+			}
+			@media screen and (min-width: $screen-dl) {
+				height: 12rem;
+			}
+		}
+	}
+}

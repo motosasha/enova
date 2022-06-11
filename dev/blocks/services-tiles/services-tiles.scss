@@ -1,0 +1,86 @@
+// В этом файле должны быть стили для БЭМ-блока services-tiles, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.services-tiles {
+	display: grid;
+	gap: .5rem;
+	grid-template-columns: 1fr 1fr;
+	@media screen and (min-width: $screen-ti) {
+		grid-template-columns: repeat(3, 1fr);
+		gap: 2rem;
+	}
+	@media screen and (min-width: $screen-d) {
+		grid-template-columns: repeat(5, 1fr);
+		gap: 2rem;
+	}
+	&__item {
+		background: var(--white_primary);
+		border: .1rem solid var(--mint_quaternary);
+		box-shadow: 0 5rem 8rem rgba(51, 204, 153, 0.07),
+					0 3rem 42rem rgba(51, 204, 153, 0.050624),
+					0 1.5rem 2rem rgba(51, 204, 153, 0.039312),
+					0 .6rem .9rem rgba(51, 204, 153, 0.030688),
+					0 .1rem .3rem rgba(51, 204, 153, 0.019376);
+		border-radius: .5rem;
+		display: flex;
+		flex-direction: column;
+		gap: .5rem;
+		padding: 1.4rem;
+		&:nth-child(1) {
+			grid-column-start: 1;
+			grid-column-end: 3;
+			@media screen and (min-width: $screen-ti) {
+				.services-tiles__descr {
+					max-width: none;
+				}
+			}
+			@media screen and (min-width: $screen-d) {
+				grid-column-end: 2;
+			}
+		}
+		@media screen and (min-width: $screen-ti) {
+			gap: 0;
+			padding: 2.4rem 2.9rem 3.4rem;
+		}
+	}
+	&__logo {
+		display: block;
+		height: 8rem;
+		margin-bottom: -2rem;
+		transform: translate(0, -2rem);
+		width: 16.7rem;
+		@media screen and (min-width: $screen-ti) {
+			height: 12rem;
+			transform: translate(0, -3.5rem);
+			width: 25rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			height: 8rem;
+			transform: translate(0, -2rem);
+			width: 16.7rem;
+		}
+	}
+	&__icon {
+		fill: var(--mint_primary);
+		height: 6rem;
+		transform: translate(-.5rem, -.5rem);
+		width: 6rem;
+		@media screen and (min-width: $screen-ti) {
+			height: 8rem;
+			transform: translate(-1rem, -.5rem);
+			width: 8rem;
+		}
+	}
+	&__descr {
+		color: var(--emerald_primary);
+		font-size: 1.5rem;
+		letter-spacing: 0.01em;
+		line-height: 1;
+		margin-top: auto;
+		max-width: 20rem;
+		@media screen and (min-width: $screen-ti) {
+			line-height: 1.33334;
+		}
+	}
+}

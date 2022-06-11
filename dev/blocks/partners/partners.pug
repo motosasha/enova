@@ -1,0 +1,7 @@
+//- Все примеси в этом файле должны начинаться c имени блока (partners)
+
+mixin partners(partners)
+	.partners__grid
+		each partner in partners
+			.partners__item
+				img(src='assets/logo__partner_' + partner.logo + '.svg')

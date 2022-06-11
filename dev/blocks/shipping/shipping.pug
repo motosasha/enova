@@ -1,0 +1,15 @@
+//- Все примеси в этом файле должны начинаться c имени блока (shipping)
+
+mixin shipping(mod)
+	.shipping(class= mod)
+		.shipping__title Способы отгрузки:
+		.shipping__inner
+			.shipping__item(data-tippy-content='Описание отгрузки')
+				svg.shipping__icon
+					use(xlink:href='img/svgSprite.svg#icon__solid_pipe')
+			.shipping__item(data-tippy-content='Описание отгрузки')
+				svg.shipping__icon
+					use(xlink:href='img/svgSprite.svg#icon__solid_truck')
+			.shipping__item(data-tippy-content='Описание отгрузки')
+				svg.shipping__icon
+					use(xlink:href='img/svgSprite.svg#icon__solid_tank')

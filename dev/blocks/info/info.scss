@@ -1,0 +1,50 @@
+// В этом файле должны быть стили для БЭМ-блока info, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.info {
+	background: url('../img/bg__pattern_emerald.png') no-repeat -13.5rem -10rem, var(--emerald_primary);
+	background-size: 98rem auto, 100% 100%;
+	color: var(--white_primary);
+	padding: 3rem 0;
+	@media screen and (min-width: $screen-ti) {
+		padding: 5rem 0;
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat -18rem -33rem, var(--emerald_primary);
+		background-size: 168rem auto, 100% 100%;
+		padding: 8rem 0;
+	}
+	&__inner {
+		display: grid;
+		gap: 3rem;
+		@media screen and (min-width: $screen-d) {
+			align-items: center;
+			grid-template-columns: auto 61rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			gap: 6.5rem;
+			grid-template-columns: 92.5rem 61rem;
+		}
+	}
+	&__text {
+		color: inherit;
+		font-size: 2rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.5;
+		strong {
+			font-weight: 700;
+		}
+		@media screen and (min-width: $screen-ti) {
+			font-size: 2.5rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			font-size: 3.5rem;
+			line-height: 1.44;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			padding-left: 13.5rem;
+		}
+	}
+}

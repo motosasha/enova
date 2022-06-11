@@ -1,0 +1,42 @@
+// В этом файле должны быть стили для БЭМ-блока producion-slider, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.producion-slider {
+	padding-bottom: 2.5rem;
+	@media screen and (min-width: $screen-d) {
+		padding: 0;
+	}
+	&__inner {}
+	&__slide {
+		height: auto;
+		width: calc(100% - 3rem);
+		@media screen and (min-width: $screen-t) {
+			width: calc(100% - 4rem);
+		}
+		@media screen and (min-width: $screen-ti) {
+			width: auto;
+		}
+	}
+	&__pagination.swiper-pagination-horizontal {
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		@media screen and (min-width: $screen-d) {
+			display: none;
+		}
+		.swiper-pagination-bullet {
+			background: none;
+			border: .5rem solid var(--mint_primary);
+			height: 1rem;
+			margin: 0;
+			opacity: 1;
+			transition: border .25s ease;
+			width: 1rem;
+		}
+		.swiper-pagination-bullet-active {
+			border: .2rem solid var(--emerald_primary);
+		}
+	}
+}

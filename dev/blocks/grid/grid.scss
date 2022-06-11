@@ -3,14 +3,24 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .grid {
-	@include container();
-	&__row {
-		@include row();
+	margin: 0 auto;
+	width: calc(100vw - 3rem);
+	@media screen and (min-width: $screen-t) {
+		width: $container-t;
 	}
-	&__col {
-		@include col();
+	@media screen and (min-width: $screen-ti) {
+		width: $container-ti;
 	}
-	&__col_12 {
-		@include col(m, 12, $grid-columns, $grid-gutter-width);
+	@media screen and (min-width: $screen-tl) {
+		width: $container-tl;
+	}
+	@media screen and (min-width: $screen-d) {
+		width: $container-d;
+	}
+	@media screen and (min-width: $screen-dl) {
+		width: $container-dl;
+	}
+	@media screen and (min-width: $screen-dxl) {
+		width: $container-dxl;
 	}
 }

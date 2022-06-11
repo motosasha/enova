@@ -4,4 +4,149 @@ block variables
 	- var isMainPage = true;
 
 block pageMain
-	div content
+	section.hero
+		.grid
+			.hero__inner
+				.hero__slider
+					+hero-slider([
+						{
+							'title': 'Крупнейший независимый брокер на рынке нефтепродуктов',
+							'button': 'Стать клиентом',
+							'href': '#',
+							'img': 'img__hero-slider_01.jpg',
+							'bgPos': '42%'
+						},
+						{
+							'title': 'Равным образом, высокое качество',
+							'button': 'Нажми меня',
+							'href': '#',
+							'img': 'img__hero-slider_02.jpg',
+							'bgPos': '50%'
+						},
+						{
+							'title': 'Безусловно, дальнейшее развитие различных форм деятельности является качественно новой ступенью',
+							'button': 'Не нажимай!',
+							'href': '#',
+							'img': 'img__hero-slider_03.jpg',
+							'bgPos': '55%'
+						}
+					])
+				+hero-actions([
+					{
+						'href': '#',
+						'title': 'Биржевой рынок',
+						'descr': 'Консультация с широким активом подходит для прогресса сообщества',
+					},
+					{
+						'href': '#',
+						'title': 'Внебиржевой рынок',
+						'descr': 'Вектор развития определяет важность внешнеэкономических политик',
+					},
+					{
+						'href': '#',
+						'title': 'Карта базисов',
+						'descr': 'Акционеры крупнейших компаний будут разнесены на независимые элементы',
+					}
+				])
+	section.section.producion
+		.grid
+			.section__inner.producion__inner
+				.producion__row
+					h2.section__title.producion__title Продукция
+					a.producion__button.button.button_secondary(href='#') Перейти в каталог
+
+					.producion__slider-controls
+						.producion__slider-arrow.producion__slider-next.swiper-button-prev
+							svg.swiper-icon
+								use(xlink:href='img/svgSprite.svg#icon__shevron_left')
+						.producion__slider-arrow.producion__slider-next.swiper-button-next
+							svg.swiper-icon
+								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+
+				.producion__slider
+					+producion-slider([
+							{
+								'title': 'Бензин АИ-100',
+								'subtitle': '2 вида нефтепродуктов',
+								'icon': 'petrol',
+								'sum': '55 000',
+								'href': '#'
+							},
+							{
+								'title': 'Дизельное топливо АО-12',
+								'subtitle': '2 вида нефтепродуктов',
+								'icon': 'diesel',
+								'sum': '55 000',
+								'href': '#'
+							},
+							{
+								'title': 'Керосин ОМ-4',
+								'subtitle': '2 вида нефтепродуктов',
+								'icon': 'kerosene',
+								'sum': '55 000',
+								'href': '#'
+							},
+							{
+								'title': 'Газовый конденсат ВКК-98',
+								'subtitle': '2 вида нефтепродуктов',
+								'icon': 'gas',
+								'sum': '55 000',
+								'href': '#'
+							}
+						])
+				a.producion__button.producion__button_mobile.button.button_secondary(href='#') Перейти в каталог
+
+	section.info
+		.grid
+			.info__inner
+				.info__text #[strong «Энова»] – современная нефтетрейдинговая компания, являющаяся одним из самых надежных и профессиональных поставщиков нефтепродуктов на территории РФ.
+				+info-tiles([
+					{
+						'title': '100',
+						'descr': 'надёжных перевозчиков по РФ',
+						'icon': 'delivery'
+					},
+					{
+						'title': '5',
+						'descr': 'лет опыта работы',
+						'icon': 'shield'
+					},
+					{
+						'title': '400',
+						'descr': 'покупателей',
+						'icon': 'face'
+					},
+					{
+						'title': '100',
+						'descr': 'поставщиков',
+						'icon': 'cart'
+					},
+					{
+						'title': '50',
+						'descr': 'складов хранения топлива',
+						'icon': 'oil'
+					},
+					{
+						'title': '80',
+						'descr': 'присутствие в регионах РФ',
+						'icon': 'pin'
+					}
+				])
+	section.section.services
+		.grid
+			.section__inner
+				h2.section__title Наши услуги
+				+services-tiles([
+					{'icon': 'oil', 'descr': 'Оптовые поставки нефтепродуктов'},
+					{'icon': 'sign', 'descr': 'Заключение формульных контрактов'},
+					{'icon': 'graph', 'descr': 'Аналитика, консультации и прогнозирование'},
+					{'icon': 'time', 'descr': 'Отсрочка платежа до 90 дней'}
+				])
+	section.section.partners
+		.grid
+			.section__inner
+				h2.section__title Партнёры компании
+				+partners([
+					{'logo': 'br'}, {'logo': 'sb'}, {'logo': 'spb'}, {'logo': 'sh'}, {'logo': 'gp'},
+					{'logo': 'trn'}, {'logo': 'tn'}, {'logo': 'rn'}, {'logo': 'sng'}, {'logo': 'lo'}
+				])

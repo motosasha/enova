@@ -1,0 +1,32 @@
+// В этом файле должны быть стили для БЭМ-блока shipping, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.shipping {
+	display: flex;
+	flex-direction: column;
+	&__title {
+		color: var(--emerald_primary);
+		font-size: 1.4rem;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		line-height: 1.0714285;
+	}
+	&__inner {
+		display: flex;
+		gap: 1.5rem;
+	}
+	&__item {
+		cursor: pointer;
+	}
+	&__icon {
+		display: block;
+		fill: var(--mint_quaternary);
+		height: 4rem;
+		transition: fill .125s ease;
+		width: 5rem;
+	}
+	&__item:hover &__icon {
+		fill: var(--mint_primary);
+	}
+}

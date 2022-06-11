@@ -1,0 +1,100 @@
+// В этом файле должны быть стили для БЭМ-блока hero, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.hero {
+	background: url('../img/bg__pattern_emerald.png') no-repeat 60% 100%, var(--emerald_primary);
+	background-size: 97rem 97rem, 100% 100%;
+	color: var(--white_primary);
+	padding: 8.5rem 0 2rem;
+	@media screen and (min-width: $screen-ti) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat 60% 150%, var(--emerald_primary);
+		background-size: 97rem 97rem, 100% 100%;
+		padding: 15rem 0 3rem;
+	}
+	@media screen and (min-width: $screen-tl) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat 60% 75%, var(--emerald_primary);
+		background-size: 160rem 160rem, 100% 100%;
+
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat 110% 80%, var(--emerald_primary);
+		background-size: 240rem 240rem, 100% 100%;
+		padding: 14.5rem 0 4rem;
+	}
+	&__inner {
+		display: grid;
+		grid-template-columns: 1fr;
+		gap: 3rem;
+		@media screen and (min-width: $screen-d) {
+			gap: 2rem;
+			grid-template-columns: calc(100% - 38.5rem) 38.5rem;
+		}
+	}
+	&__slider {
+		padding-bottom: 2.5rem;
+		position: relative;
+		width: calc(100vw - 3rem);
+		@media screen and (min-width: $screen-t) {
+			width: $container-t;
+		}
+		@media screen and (min-width: $screen-ti) {
+			width: $container-ti;
+		}
+		@media screen and (min-width: $screen-tl) {
+			width: $container-tl;
+		}
+		@media screen and (min-width: $screen-d) {
+			padding: 0;
+			width: auto;
+		}
+	}
+	&__slider-pagination.swiper-pagination-horizontal {
+		bottom: 0;
+		display: flex;
+		justify-content: center;
+		gap: 1rem;
+		@media screen and (min-width: $screen-d) {
+			bottom: 5.5rem;
+			justify-content: flex-end;
+			left: auto;
+			right: 16.5rem;
+			width: 10rem;
+		}
+		.swiper-pagination-bullet {
+			background: none;
+			border: .5rem solid var(--white_primary);
+			height: 1rem;
+			margin: 0;
+			opacity: 1;
+			transition: border .25s ease;
+			width: 1rem;
+		}
+		.swiper-pagination-bullet-active {
+			border: .2rem solid var(--mint_quaternary);
+		}
+	}
+	&__slider-arrow {
+		background: var(--white_primary);
+		display: none;
+		fill: var(--emerald_primary);
+		transition: background .25s ease;
+		@media screen and (min-width: $screen-d) {
+			display: flex;
+		}
+		&:hover {
+			background: var(--white_tertiary);
+		}
+		&.swiper-button-prev {
+			bottom: 4rem;
+			left: auto;
+			right: 9rem;
+			top: auto;
+		}
+		&.swiper-button-next {
+			bottom: 4rem;
+			right: 4rem;
+			top: auto;
+		}
+	}
+}

@@ -1,0 +1,76 @@
+// В этом файле должны быть стили для БЭМ-блока hero-action, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.hero-actions {
+	display: grid;
+	gap: 1rem;
+	@media screen and (min-width: $screen-tl) {
+		grid-template-columns: repeat(3, 1fr);
+	}
+	@media screen and (min-width: $screen-d) {
+		gap: 2rem;
+		grid-template-columns: 1fr;
+	}
+	&__item {
+		background: var(--emerald_primary);
+		border: .1rem solid var(--mint_primary_25p);
+		box-shadow: var(--shadow);
+		border-radius: 1rem;
+		display: grid;
+		gap: 2rem;
+		padding: 1.9rem;
+		position: relative;
+		text-decoration: none;
+		transition: border .25s ease, box-shadow .25s ease, transform .25s ease;
+		@media screen and (min-width: $screen-d) {
+			padding: 2.9rem;
+		}
+		&:nth-child(1) {
+			background: url('../img/bg__hero-acts_01.svg') no-repeat 0 35%, var(--emerald_primary);
+			background-size: 60rem 60rem, 100%;
+		}
+		&:nth-child(2) {
+			background: url('../img/bg__hero-acts_02.svg') no-repeat 0 80%, var(--emerald_primary);
+			background-size: 60rem 60rem, 100%;
+		}
+		&:nth-child(3) {
+			background: url('../img/bg__hero-acts_03.png') no-repeat center, var(--emerald_primary);
+			background-size: 60rem 17rem, 100%;
+		}
+		&:hover {
+			border: .1rem solid var(--mint_primary);
+			box-shadow: 0 2rem 3rem rgba(102, 217, 179, 0.1), 0 0 .5rem rgba(102, 217, 179, 0.1);
+			transform: translateY(-.2rem);
+		}
+	}
+	&__title {
+		color: var(--mint_primary);
+		font-size: 2rem;
+		font-weight: 500;
+		letter-spacing: 0.01em;
+		line-height: 1;
+	}
+	&__descr {
+-webkit-box-orient: vertical;
+		color: var(--emerald_quaternary);
+		display: -webkit-box;
+		font-size: 1.5rem;
+		font-weight: 400;
+		letter-spacing: 0.01em;
+-webkit-line-clamp: 2;
+		line-clamp: 2;
+		line-height: 1.33334;
+		overflow: hidden;
+		text-overflow: ellipsis;
+	}
+	&__arrow {
+		height: 2rem;
+		position: absolute;
+		right: 1.5rem;
+		stroke: var(--mint_primary);
+		stroke-width: .2rem;
+		top: 1.5rem;
+		width: 2rem;
+	}
+}

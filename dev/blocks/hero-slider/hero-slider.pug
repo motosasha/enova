@@ -1,0 +1,17 @@
+//- Все примеси в этом файле должны начинаться c имени блока (hero-slider)
+
+mixin hero-slider(slides)
+	.hero-slider.swiper
+		.hero-slider__inner.swiper-wrapper
+			each slide in slides
+				.hero-slider__slide.swiper-slide
+					h1.hero-slider__title!= slide.title
+					a.hero-slider__button.button(href= slide.href)!= slide.button
+					img.hero-slider__img(src='assets/' + slide.img, style='object-position:' + slide.bgPos + ' center;' alt='')
+	.hero__slider-pagination.swiper-pagination
+	.hero__slider-arrow.hero__slider-prev.swiper-button-prev
+		svg.swiper-icon
+			use(xlink:href='img/svgSprite.svg#icon__shevron_left')
+	.hero__slider-arrow.hero__slider-next.swiper-button-next
+		svg.swiper-icon
+			use(xlink:href='img/svgSprite.svg#icon__shevron_right')
