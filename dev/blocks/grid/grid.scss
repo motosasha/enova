@@ -1,0 +1,16 @@
+// В этом файле должны быть стили для БЭМ-блока grid, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.grid {
+	@include container();
+	&__row {
+		@include row();
+	}
+	&__col {
+		@include col();
+	}
+	&__col_12 {
+		@include col(m, 12, $grid-columns, $grid-gutter-width);
+	}
+}

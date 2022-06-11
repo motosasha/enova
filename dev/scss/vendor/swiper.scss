@@ -1,0 +1,31 @@
+.swiper-button-prev,
+.swiper-button-next {
+	box-shadow: 0 6.4rem 4.6rem rgba(7, 2, 0, 0.0531481),
+				0 3.8rem 2.5rem rgba(7, 2, 0, 0.0425185),
+				0 2rem 1.3rem rgba(7, 2, 0, 0.035),
+				0 .8rem .6rem rgba(7, 2, 0, 0.0274815),
+				0 .2rem .3rem rgba(7, 2, 0, 0.0168519);
+	border-radius: 50%;
+	height: 4.8rem;
+	width: 4.8rem;
+	z-index: 3;
+	&::after {
+		content: none;
+	}
+}
+.swiper-button-prev {
+	left: .8rem;
+	@media screen and (min-width: $screen-dl) {
+		left: 0;
+	}
+}
+.swiper-button-next {
+	right: .8rem;
+	@media screen and (min-width: $screen-dl) {
+		right: 0;
+	}
+}
+.swiper-icon {
+	height: 100%;
+	width: 100%;
+}

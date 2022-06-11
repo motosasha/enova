@@ -1,0 +1,116 @@
+// В этом файле должны быть стили для БЭМ-блока footer, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.footer {
+	background: url('../img/bg__pattern_emerald.png') no-repeat center, var(--emerald_primary);
+	background-size: 82rem 82rem, 100%;
+	color: var(--white_primary);
+	padding: 3rem 0;
+	@media screen and (min-width: $screen-d) {
+		background: var(--emerald_primary);
+		padding: 3rem 0 4rem;
+	}
+	&__inner {
+		justify-content: center;
+		display: grid;
+		gap: 2.5rem 2rem;
+		@media screen and (min-width: $screen-tl) {
+			grid-template-areas:    'logo callback'
+									'info socials';
+			justify-content: normal;
+		}
+		@media screen and (min-width: $screen-d) {
+			grid-template-columns: 16.6667% auto auto;
+			grid-template-areas:    'logo nav callback'
+									'. info socials';
+		}
+	}
+	&__logo {
+		margin: 0 auto;
+		@media screen and (min-width: $screen-tl) {
+			grid-area: logo;
+			margin: 0;
+		}
+		@media screen and (min-width: $screen-d) {
+			align-self: start;
+			justify-self: start;
+		}
+		&[href] {
+			transition: opacity .125s ease;
+			&:hover {
+				opacity: .8;
+			}
+		}
+		svg {
+			height: 3.5rem;
+			width: 18.5rem;
+		}
+	}
+	:is(.footer) &__nav {
+		grid-area: nav;
+		display: none;
+		@media screen and (min-width: $screen-d) {
+			align-self: start;
+			display: flex;
+			justify-self: start;
+			padding-top: 1.5rem;
+		}
+	}
+	&__callback {
+		align-items: center;
+		display: none;
+		gap: 3rem;
+		@media screen and (min-width: $screen-tl) {
+			align-items: center;
+			display: flex;
+			grid-area: callback;
+			justify-self: end;
+		}
+		@media screen and (min-width: $screen-d) {
+			align-items: flex-end;
+			flex-direction: column;
+			gap: 1.5rem;
+			grid-area: callback;
+			padding-top: 1rem;
+		}
+	}
+	&__phone {
+		color: inherit;
+		font-size: 2.5rem;
+		font-weight: 300;
+		letter-spacing: 0.02em;
+		line-height: 1;
+		text-align: right;
+		text-decoration: none;
+		transition: opacity .125s ease;
+		&:hover {
+			opacity: .8;
+		}
+	}
+	:is(.footer) &__socials {
+		display: none;
+		grid-area: socials;
+		@media screen and (min-width: $screen-tl) {
+			display: flex;
+			grid-area: socials;
+			justify-self: flex-end;
+		}
+	}
+	&__info {
+		display: grid;
+		font-size: 1.5rem;
+		font-weight: 400;
+		gap: 1rem;
+		line-height: 1;
+		text-align: center;
+		@media screen and (min-width: $screen-tl) {
+			grid-area: info;
+			text-align: left;
+		}
+	}
+	&__data {}
+	&__copy {
+		color: var(--mint_primary);
+	}
+}

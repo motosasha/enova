@@ -1,0 +1,31 @@
+//- Все примеси в этом файле должны начинаться c имени блока (header)
+
+mixin header
+	header.header
+		.grid
+			.grid__row
+				.grid__col.grid__col_12
+					.header__inner
+						if isMainPage === true
+							.header__logo
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__logo')
+						else
+							a.header__logo(href='/')
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__logo')
+
+						+nav('header__nav')
+
+						.header__callback
+							a.header__phone(href='tel:89372877228') +7 937 287 72 28
+							a.button.header__button(href='#') Заказать звонок
+
+						+socials('header__socials')
+
+						.header__menu
+							.header__menu-inner
+								span
+								span
+								span
+								span

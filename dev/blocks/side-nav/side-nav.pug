@@ -1,0 +1,12 @@
+//- Все примеси в этом файле должны начинаться c имени блока (side-nav)
+
+mixin side-nav(text, mods)
+	.side-nav
+		.side-nav__inner
+			+nav('side-nav__nav')
+
+			.side-nav__callback
+				a.footer__phone(href='tel:89372877228') +7 937 287 72 28
+				a.button.footer__button(href='#') Заказать звонок
+
+			+socials('side-nav__socials')

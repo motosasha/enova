@@ -1,0 +1,159 @@
+// В этом файле должны быть стили для БЭМ-блока header, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.header {
+	backdrop-filter: blur(1.5rem);
+	background: var(--emerald_primary_90p);
+	box-shadow: inset 0 -0.1rem 0 var(--emerald_secondary);
+	color: var(--white_primary);
+	padding: 1.5rem 0;
+	@media screen and (min-width: $screen-ti) {
+		padding: 1.5rem 0 3rem;
+	}
+	@media screen and (min-width: $screen-dxl) {
+		padding: 3rem 0 3.5rem;
+	}
+	&__inner {
+		align-items: flex-end;
+		display: flex;
+		justify-content: space-between;
+		@media screen and (min-width: $screen-ti) {
+			align-items: normal;
+			display: grid;
+			justify-content: normal;
+			gap: 2rem 3rem;
+			grid-template-columns: auto max-content 9rem;
+			grid-template-areas:    'logo callback socials'
+									'nav nav nav';
+		}
+		@media screen and (min-width: $screen-dxl) {
+			align-items: center;
+			gap: 3.5rem;
+			grid-template-columns: 21.5rem auto 40rem 9rem;
+			grid-template-areas: 'logo nav callback socials';
+		}
+	}
+	&__logo {
+		grid-area: logo;
+		&[href] {
+			transition: opacity .125s ease;
+			&:hover {
+				opacity: .8;
+			}
+		}
+		svg {
+			height: 3.5rem;
+			width: 18.5rem;
+		}
+	}
+	:is(.header) &__nav {
+		display: none;
+		grid-area: nav;
+		@media screen and (min-width: $screen-ti) {
+			display: flex;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			padding: 1.5rem 0 .5rem;
+		}
+	}
+	&__callback {
+		align-items: center;
+		display: none;
+		gap: 3rem;
+		grid-area: callback;
+		@media screen and (min-width: $screen-ti) {
+			display: flex;
+		}
+	}
+	&__phone {
+		color: inherit;
+		font-size: 2rem;
+		font-weight: 300;
+		letter-spacing: 0.02em;
+		line-height: 1;
+		text-align: right;
+		text-decoration: none;
+		transition: opacity .125s ease;
+		&:hover {
+			opacity: .8;
+		}
+		@media screen and (min-width: $screen-tl) {
+			font-size: 2.5rem;
+		}
+	}
+	:is(.header) &__socials {
+		display: none;
+		grid-area: socials;
+		@media screen and (min-width: $screen-ti) {
+			display: flex;
+		}
+	}
+	&__menu {
+		cursor: pointer;
+		height: 3rem;
+		width: 3rem;
+		@media screen and (min-width: $screen-ti) {
+			display: none;
+		}
+	}
+	&__menu-inner {
+		height: 100%;
+		position: relative;
+		transition: transform .125s ease-in-out;
+		width: 100%;
+		[data-state='open'] & {
+			transform: rotate(135deg);
+		}
+		span {
+			background: var(--mint_primary);
+			border-radius: 50%;
+			display: block;
+			height: .4rem;
+			left: 50%;
+			position: absolute;
+			top: 50%;
+			transition: all .125s ease;
+			width: .4rem;
+			&:nth-child(1) {
+				transform: translate(-.2rem, -.9rem);
+			}
+			&:nth-child(2) {
+				transform: translate(.5rem, -.2rem);
+			}
+			&:nth-child(3) {
+				transform: translate(-.2rem, .5rem);
+			}
+			&:nth-child(4) {
+				transform: translate(-.9rem, -.2rem);
+			}
+			[data-state='open'] & {
+				background: var(--white_primary);
+				&:nth-child(1) {
+					border-radius: .2rem .2rem 0 0;
+					height: 1rem;
+					width: .25rem;
+					transform: translate(-.15rem, -1rem);
+				}
+				&:nth-child(2) {
+					border-radius: 0 .2rem .2rem 0;
+					height: .25rem;
+					width: 1rem;
+					transform: translate(0, -.15rem);
+				}
+				&:nth-child(3) {
+					border-radius: 0 0 .2rem .2rem;
+					height: 1rem;
+					width: .25rem;
+					transform: translate(-.15rem, 0);
+				}
+				&:nth-child(4) {
+					border-radius: .2rem 0 0 .2rem;
+					height: .25rem;
+					width: 1rem;
+					transform: translate(-1rem, -.15rem);
+				}
+			}
+		}
+	}
+}

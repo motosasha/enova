@@ -1,0 +1,27 @@
+//- Все примеси в этом файле должны начинаться c имени блока (footer)
+
+mixin footer
+	footer.footer
+		.grid
+			.grid__row
+				.grid__col.grid__col_12
+					.footer__inner
+						if isMainPage === true
+							.footer__logo
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__logo')
+						else
+							a.footer__logo(href='/')
+								svg.svg
+									use(xlink:href='img/svgSprite.svg#img__logo')
+						+nav('footer__nav')
+
+						.footer__callback
+							a.footer__phone(href='tel:89372877228') +7 937 287 72 28
+							a.button.footer__button(href='#') Заказать звонок
+
+						.footer__info
+							.footer__data ИНН: 1234567890, ОГРН: 1234567890
+							.footer__copy 2022 © ООО «Энова»
+
+						+socials('footer__socials')

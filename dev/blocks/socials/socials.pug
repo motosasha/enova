@@ -1,0 +1,10 @@
+//- Все примеси в этом файле должны начинаться c имени блока (socials)
+
+mixin socials(mods)
+	.socials(class= mods)
+		a.socials__item(href='#')
+			svg.socials__icon
+				use(xlink:href='img/svgSprite.svg#icon__socials_tg')
+		a.socials__item(href='#')
+			svg.socials__icon
+				use(xlink:href='img/svgSprite.svg#icon__socials_wa')
