@@ -35,6 +35,7 @@
 		padding-bottom: 2.5rem;
 		position: relative;
 		width: calc(100vw - 3rem);
+		z-index: 1;
 		@media screen and (min-width: $screen-t) {
 			width: $container-t;
 		}

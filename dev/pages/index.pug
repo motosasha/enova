@@ -54,15 +54,13 @@ block pageMain
 				.producion__row
 					h2.section__title.producion__title Продукция
 					a.producion__button.button.button_secondary(href='#') Перейти в каталог
-
 					.producion__slider-controls
-						.producion__slider-arrow.producion__slider-next.swiper-button-prev
+						.producion__slider-arrow.producion__slider-prev.swiper-button-prev
 							svg.swiper-icon
 								use(xlink:href='img/svgSprite.svg#icon__shevron_left')
 						.producion__slider-arrow.producion__slider-next.swiper-button-next
 							svg.swiper-icon
 								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
-
 				.producion__slider
 					+producion-slider([
 							{
@@ -70,28 +68,40 @@ block pageMain
 								'subtitle': '2 вида нефтепродуктов',
 								'icon': 'petrol',
 								'sum': '55 000',
-								'href': '#'
+								'href': '#',
+								'pipe': 1,
+								'truck': 0,
+								'tank': 1
 							},
 							{
 								'title': 'Дизельное топливо АО-12',
 								'subtitle': '2 вида нефтепродуктов',
 								'icon': 'diesel',
 								'sum': '55 000',
-								'href': '#'
+								'href': '#',
+								'pipe': 1,
+								'truck': 1,
+								'tank': 0
 							},
 							{
 								'title': 'Керосин ОМ-4',
 								'subtitle': '2 вида нефтепродуктов',
 								'icon': 'kerosene',
 								'sum': '55 000',
-								'href': '#'
+								'href': '#',
+								'pipe': 1,
+								'truck': 0,
+								'tank': 0
 							},
 							{
 								'title': 'Газовый конденсат ВКК-98',
 								'subtitle': '2 вида нефтепродуктов',
 								'icon': 'gas',
 								'sum': '55 000',
-								'href': '#'
+								'href': '#',
+								'pipe': 0,
+								'truck': 1,
+								'tank': 1
 							}
 						])
 				a.producion__button.producion__button_mobile.button.button_secondary(href='#') Перейти в каталог
@@ -139,7 +149,7 @@ block pageMain
 				+services-tiles([
 					{'icon': 'oil', 'descr': 'Оптовые поставки нефтепродуктов'},
 					{'icon': 'sign', 'descr': 'Заключение формульных контрактов'},
-					{'icon': 'graph', 'descr': 'Аналитика, консультации и прогнозирование'},
+					{'icon': 'graph', 'descr': 'Аналитика, консультации и прогнозирование'},
 					{'icon': 'time', 'descr': 'Отсрочка платежа до 90 дней'}
 				])
 	section.section.partners

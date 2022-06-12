@@ -11,6 +11,9 @@
 	height: 100%;
 	padding: 1.9rem 1.9rem .9rem;
 	transition: border .25s ease;
+	@media screen and (min-width: $screen-tl) {
+		padding: 2.4rem 2.9rem 1.4rem;
+	}
 	&:hover {
 		border: .1rem solid var(--mint_primary);
 	}
@@ -36,6 +39,9 @@
 		font-weight: 700;
 		line-height: 1;
 		margin: 1rem 0 2rem;
+		@media screen and (min-width: $screen-tl) {
+			margin: 2rem 0 4rem;
+		}
 		span {
 			color: var(--emerald_tertiary);
 			font-size: 2rem;
@@ -53,5 +59,10 @@
 	}
 	&__shipping {
 		margin-top: auto;
+		@media screen and (min-width: $screen-tl) {
+			align-items: center;
+			flex-direction: row;
+			gap: 1.5rem;
+		}
 	}
 }

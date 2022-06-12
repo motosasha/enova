@@ -26,7 +26,7 @@
 		transition: fill .125s ease;
 		width: 5rem;
 	}
-	&__item:hover &__icon {
+	&__item_active &__icon {
 		fill: var(--mint_primary);
 	}
 }
