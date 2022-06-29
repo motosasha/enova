@@ -12,6 +12,7 @@
 		padding: 4rem;
 	}
 	&_filter {}
+	&_thanks {}
 	:is(.popup) &__close {
 		background: none;
 		display: block;
@@ -25,5 +26,14 @@
 	&__icon {
 		height: 3rem;
 		width: 3rem;
+	}
+	&__title {
+		font-size: 2rem;
+		font-weight: 700;
+		margin-bottom: 2rem;
+	}
+	&__text {
+		font-size: 1.5rem;
+		line-height: 1.5;
 	}
 }

@@ -24,7 +24,7 @@ mixin popup_callback
 						button.button.form__button Отправить
 
 mixin popup_filter
-	#filter.hystmodal.map__filter(aria-hidden='true')
+	#filter.hystmodal(aria-hidden='true')
 		.hystmodal__wrap
 			.hystmodal__window.popup.popup_filter(role='dialog' aria-modal='true')
 				button.hystmodal__close.popup__close(data-hystclose)
@@ -84,3 +84,13 @@ mixin popup_filter
 					.form__footer
 						button.button.button_tertiary.form__button Сбросить
 						button.button.form__button Применить
+
+mixin popup_thanks
+	#thanks.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.hystmodal__window.popup.popup_thanks(role='dialog' aria-modal='true')
+				button.hystmodal__close.popup__close(data-hystclose)
+					svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				.popup__title Ваша заявка принята!
+				.popup__text Мы свяжемся с вами в ближайшнн время
