@@ -2,7 +2,7 @@
 
 mixin product-tile(title, subtitle, icon, sum, pipe, truck, tank)
 	.product-tile
-		a.product-tile__title(href='/card.html')!= title
+		a.product-tile__title(href='card.html')!= title
 		.product-tile__subtitle!= subtitle
 		svg.product-tile__icon
 			use(xlink:href='img/svgSprite.svg#icon__solid_' + icon)
