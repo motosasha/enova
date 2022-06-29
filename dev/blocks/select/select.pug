@@ -1,0 +1,6 @@
+//- Все примеси в этом файле должны начинаться c имени блока (select)
+
+mixin select(mod, options)
+	select.select(class= mod)
+		each option in options
+			option(value= option.value)!= option.label

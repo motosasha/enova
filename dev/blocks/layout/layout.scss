@@ -1,0 +1,103 @@
+// В этом файле должны быть стили для БЭМ-блока map, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.layout {
+	&_catalog {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -29rem center;
+		background-size: 98rem 98rem;
+		@media screen and (min-width: $screen-tl) {
+			background: url('../img/bg__pattern_emerald.png') no-repeat top -100rem right -50rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			background: url('../img/bg__pattern_emerald.png') no-repeat top -145rem right -46rem;
+			background-size: 256rem 256rem;
+		}
+	}
+	&_map {
+		height: 100%;
+	}
+	.grid {
+		display: flex;
+		flex-direction: column;
+		height: 100%;
+		@media screen and (min-width: $screen-d) {
+			display: grid;
+			grid-template-columns: 36.5rem auto;
+			gap: 4rem;
+			.layout_map & {
+				gap: 0;
+				height: calc(100vh - 12rem);
+			}
+		}
+		@media screen and (min-width: $screen-dxl) {
+			.layout_map & {
+				height: calc(100vh - 10.5rem);
+			}
+		}
+	}
+	:is(&) &__side {
+		padding: 4rem 0 2.5rem;
+		@media screen and (min-width: $screen-d) {
+			height: 100%;
+			overflow: hidden;
+			padding: 6rem 0 6rem;
+			.layout_map & {
+				margin: 0;
+				padding: 4rem 0;
+			}
+		}
+	}
+	&__button {
+		@media screen and (min-width: $screen-d) {
+			display: none;
+		}
+	}
+	&__scroll {
+		display: none;
+		height: 100%;
+		overflow-y: auto;
+		position: relative;
+		@media screen and (min-width: $screen-d) {
+			display: block;
+			height: calc(100% - 10rem);
+			overflow-y: auto;
+			padding-right: 4rem;
+		}
+	}
+	&_catalog &__main {
+		padding: 0 0 6rem;
+		@media screen and (min-width: $screen-t) {
+			padding: 0 0 6rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			padding: 6rem 0 10rem;
+		}
+	}
+	&_map &__main {
+		flex: 1 1 auto;
+		margin: 0 -1.5rem;
+		position: relative;
+		@media screen and (min-width: $screen-t) {
+			margin: 0 0 0 calc((100vw - $container-t) / 2 * -1);
+			width: 100vw;
+		}
+		@media screen and (min-width: $screen-ti) {
+			margin: 0 0 0 calc((100vw - $container-ti) / 2 * -1);
+		}
+		@media screen and (min-width: $screen-tl) {
+			margin: 0 0 0 calc((100vw - $container-tl) / 2 * -1);
+		}
+		@media screen and (min-width: $screen-d) {
+			margin: 0;
+			width: calc(100% + (100vw - $container-d) / 2);
+		}
+		@media screen and (min-width: $screen-dl) {
+			width: calc(100% + (100vw - $container-dl) / 2);
+		}
+		@media screen and (min-width: $screen-dxl) {
+			width: calc(100% + (100vw - $container-dxl) / 2);
+		}
+	}
+}
+

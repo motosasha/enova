@@ -1,1 +1,2 @@
-
+<view id="icon__shevron_down-view" viewBox="0 0 25 25" />
+<use xlink:href="#icon__shevron_down" width="25" height="25" x="0" y="0"></use>

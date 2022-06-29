@@ -1,8 +1,10 @@
 //- Стандартный шаблон страницы
 include mixins.pug
 
+- var isMainPage = false;
+- var pageMainPT = true;
+
 block variables
-	- var isMainPage = false
 
 doctype html
 html(class='no-js', lang='ru-RU')
@@ -32,8 +34,10 @@ html(class='no-js', lang='ru-RU')
 		link(rel='preconnect', href='https://fonts.gstatic.com' crossorigin='')
 		link(href='https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&display=swap', rel='stylesheet')
 
-		block meta
+		block title
 			title «Энова» — современная нефтетрейдинговая компания
+
+		block meta
 			meta(name='description', content='')
 			meta(name='keywords', content='')
 
@@ -48,11 +52,13 @@ html(class='no-js', lang='ru-RU')
 				+side-nav
 			.page__header
 				+header
-			.page__main
+			.page__main(class= pageMainPT ? 'page__main_pt': '')
 				block pageMain
 					.fake-content fake-content
 			.page__footer
 				+footer
+
+		+popup_callback
 
 		block templates
 

@@ -8,7 +8,6 @@
 	}
 	&__slide {
 		align-items: flex-start;
-		background: var(--mint_primary);
 		border-radius: 1rem;
 		display: flex;
 		flex-direction: column;
@@ -22,7 +21,7 @@
 	}
 	&__title {
 -webkit-box-orient: vertical;
-		color: var(--emerald_primary);
+		color: var(--white_primary);
 		display: -webkit-box;
 		font-size: 2rem;
 		font-weight: 300;
@@ -31,23 +30,21 @@
 		line-clamp: 4;
 		line-height: 1.25;
 		margin: 0 0 2rem;
-		max-width: 75%;
+		//max-width: 75%;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		@media screen and (min-width: $screen-ti) {
 			font-size: 3rem;
-			max-width: 60%;
+			max-width: 75%;
 		}
 		@media screen and (min-width: $screen-dxl) {
 			font-size: 4rem;
-			max-width: 54%;
+			max-width: 65rem;
 		}
 	}
 	&__button {
-		background: #003333;
 		border-radius: .5rem;
 		box-shadow: var(--shadow);
-		color: var(--white_primary);
 		display: inline-block;
 		@media screen and (min-width: $screen-ti) {
 			font-size: 1.8rem;

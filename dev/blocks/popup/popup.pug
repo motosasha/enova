@@ -1,0 +1,86 @@
+//- Все примеси в этом файле должны начинаться c имени блока (popup)
+
+mixin popup_callback
+	#callback.hystmodal(aria-hidden='true')
+		.hystmodal__wrap
+			.hystmodal__window.popup.popup_callback(role='dialog' aria-modal='true')
+				button.hystmodal__close.popup__close(data-hystclose)
+					svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				form.form
+					.form__row
+						.form-field
+							label.form-field__label Имя
+							input.input(type='text', required)
+					.form__row
+						.form-field
+							label.form-field__label Телефон
+							input.input(type='tel', required)
+					.form__row
+						.form-field
+							label.form-field__label Электронная почта
+							input.input(type='email')
+					.form__row
+						button.button.form__button Отправить
+
+mixin popup_filter
+	#filter.hystmodal.map__filter(aria-hidden='true')
+		.hystmodal__wrap
+			.hystmodal__window.popup.popup_filter(role='dialog' aria-modal='true')
+				button.hystmodal__close.popup__close(data-hystclose)
+					svg.popup__icon
+						use(xlink:href='img/svgSprite.svg#icon__cross')
+				form.form
+					.form__row
+						.form-field
+							label.form-field__label Вид топлива
+							+select('', [
+								{'label': 'Выберите виды', 'value': 'all'},
+								{'label': 'Бензин', 'value': 'petroluem'},
+								{'label': 'Дизельное топливо', 'value': 'diesel'},
+								{'label': 'Керосин', 'value': 'kerosene'},
+								{'label': 'Сжиженный углеводородный газ', 'value': 'gas'}
+							])
+					.form__row
+						.form-field
+							.form-field__label Способ отгрузки
+							.form-field__row.form-field__row_checks
+								label.checkbox
+									input.checkbox__input(type='checkbox', value=1, name='shipment')
+									.checkbox__inner
+										svg.checkbox__check
+											use(xlink:href='img/svgSprite.svg#icon__check')
+										.checkbox__label Автомобить
+								label.checkbox
+									input.checkbox__input(type='checkbox', value=2, name='shipment')
+									.checkbox__inner
+										svg.checkbox__check
+											use(xlink:href='img/svgSprite.svg#icon__check')
+										.checkbox__label Железная дорога
+					.form__row
+						.form-field
+							label.form-field__label Цена за тонну (₽)
+							.form-field__row.form-field__row_fields
+								input.input(type='text', placeholder='до')
+								input.input(type='text', placeholder='после')
+					.form__row
+						label.form-field
+							.form-field__label Область
+							+select('', [
+								{'label': 'Все области', 'value': 'all'},
+								{'label': 'Область 1', 'value': 1},
+								{'label': 'Область 2', 'value': 2},
+								{'label': 'Область 3', 'value': 3}
+							])
+					.form__row
+						label.form-field
+							.form-field__label Базис
+							+select('', [
+								{'label': 'Выберите базис', 'value': 'all'},
+								{'label': 'Базис 1', 'value': 1},
+								{'label': 'Базис 2', 'value': 2},
+								{'label': 'Базис 3', 'value': 3}
+							])
+					.form__footer
+						button.button.button_tertiary.form__button Сбросить
+						button.button.form__button Применить

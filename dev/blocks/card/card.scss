@@ -1,0 +1,159 @@
+// В этом файле должны быть стили для БЭМ-блока card, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.card {
+	background: url('../img/bg__pattern_emerald.png') no-repeat top -29rem center;
+	background-size: 98rem 98rem;
+	@media screen and (min-width: $screen-tl) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -100rem right -50rem;
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -145rem right -46rem;
+		background-size: 256rem 256rem;
+	}
+	&__inner {
+		padding: 4rem 0 5rem;
+		@media screen and (min-width: $screen-d) {
+			padding: 6rem 0;
+		}
+		@media screen and (min-width: $screen-dl) {
+			display: grid;
+			grid-template-columns: 27rem auto;
+			padding: 8rem 0;
+		}
+	}
+	&__info {
+		margin-top: 1.5rem;
+		position: relative;
+		@media screen and (min-width: $screen-d) {
+			margin-top: 3rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			margin: 0;
+		}
+	}
+	&__icon {
+		fill: var(--mint_primary);
+		display: none;
+		height: 19rem;
+		position: absolute;
+		right: 0;
+		top: -1rem;
+		width: 19rem;
+		@media screen and (min-width: $screen-d) {
+			display: block;
+		}
+	}
+	&__title {
+		color: var(--emerald_primary);
+		font-size: 2.5rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.4;
+		margin: 0;
+		max-width: 106rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 4.5rem;
+			line-height: 1.2334;
+		}
+		@media screen and (min-width: $screen-d) {
+			width: calc(100% - 20rem);
+		}
+	}
+	&__row {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin: 2.5rem 0 3rem;
+		@media screen and (min-width: $screen-t) {
+			align-items: center;
+			flex-direction: row;
+			gap: 5rem;
+			margin: 2.5rem 0 5rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin: 5rem 0 8rem;
+		}
+	}
+	&__price {
+		color: var(--emerald_secondary);
+		font-size: 4rem;
+		font-weight: 700;
+		line-height: 1;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 6rem;
+		}
+	}
+	&__button {
+		margin: 0;
+		@media screen and (min-width: $screen-tl) {
+			max-width: 25rem;
+			width: 100%;
+		}
+	}
+	&_backto {
+		background: var(--mint_quaternary);
+		@media screen and (min-width: $screen-tl) {
+			font-size: 1.5rem;
+			max-width: 20.5rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			align-self: start;
+			justify-self: start;
+			padding: .9rem 3rem .9rem .9rem;
+		}
+	}
+	&__cols {
+		display: grid;
+		gap: 3rem;
+		@media screen and (min-width: $screen-t) {
+			grid-template-columns: 2fr 1fr;
+		}
+		@media screen and (min-width: $screen-d) {
+			width: 87rem;
+		}
+	}
+	&__col {
+		align-items: flex-start;
+		display: flex;
+		flex-direction: column;
+	}
+	&__prod {
+		color: var(--emerald_primary);
+		font-size: 2rem;
+		letter-spacing: 0.01em;
+		line-height: 1.25;
+		margin-bottom: 1rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 2.5rem;
+			line-height: 1.4;
+		}
+	}
+	&__prod-descr {
+		color: var(--emerald_tertiary);
+		font-size: 1.5rem;
+		line-height: 1.3334;
+		margin-bottom: 2rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 2rem;
+			line-height: 1.25;
+		}
+	}
+	&__shipping {
+		@media screen and (min-width: $screen-tl) {
+			.shipping {
+				gap: 1rem;
+			}
+			.shipping__title {
+				font-size: 2rem;
+				font-weight: 500;
+				line-height: 1.1;
+			}
+			.shipping__icon {
+				height: 8rem;
+				width: 10rem;
+			}
+		}
+	}
+}

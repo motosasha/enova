@@ -1,0 +1,85 @@
+extends ../pug/layout_default.pug
+
+block variables
+	- var isMainPage = false;
+
+block pageMain
+	section.card
+		.grid
+			.card__inner
+				a.button.button_tertiary.button_prev.card_backto(href='/catalog.html', data-aos='fade-up', data-aos-duration='750')
+					svg.button__icon
+						use(xlink:href='img/svgSprite.svg#icon__shevron_left')
+					| Назад в каталог
+				.card__info
+					svg.card__icon
+						use(xlink:href='img/svgSprite.svg#icon__solid_petrol')
+					h1.card__title(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250') Автомобильный бензин АИ-100-К5 экологического класса К5 марки TANECO-100 «EURO-6» по СТО 78689379-50-2020
+					.card__row
+						.card__price(data-aos='fade-up', data-aos-duration='750', data-aos-delay='750') 55 300 ₽
+						a.card__button.button.button_next(href='#', data-aos='fade-up', data-aos-duration='750', data-aos-delay='1000') Заказать
+							svg.button__icon
+								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+					.card__cols
+						.card__col(data-aos='fade-up', data-aos-duration='750', data-aos-delay='1250')
+							.card__prod АО «Танеко»
+							.card__prod-descr 423570, Российская Федерация, Республика Татарстан, г. Нижнекамск, а/я-97 РУПС
+							a.button.button_secondary.button_file(href='file.pdf', download)
+								svg.button__icon
+									use(xlink:href='img/svgSprite.svg#icon__file_pdf')
+								| Паспорт качества
+						.card__col(data-aos='fade-up', data-aos-duration='750', data-aos-delay='1500')
+							+shipping('card__shipping', 1, 0, 0)
+	section.section.production(data-aos='fade-up', data-aos-duration='750', data-aos-delay='500')
+		.grid
+			.section__inner.producion__inner
+				.production__row
+					h2.section__title.production__title Не нашли, что искали?
+					a.production__button.button.button_secondary(href='/catalog.html') Перейти в каталог
+					.production__slider-controls
+						.production__slider-arrow.production__slider-prev.swiper-button-prev
+							svg.swiper-icon
+								use(xlink:href='img/svgSprite.svg#icon__shevron_left')
+						.production__slider-arrow.production__slider-next.swiper-button-next
+							svg.swiper-icon
+								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+				.production__slider
+					+production-slider([
+						{
+							'title': 'Бензин АИ-100',
+							'subtitle': 'Татнефть',
+							'icon': 'petrol',
+							'sum': '55 000',
+							'pipe': 1,
+							'truck': 0,
+							'tank': 1
+						},
+						{
+							'title': 'Дизельное топливо АО-12',
+							'subtitle': 'Татнефть',
+							'icon': 'diesel',
+							'sum': '55 000',
+							'pipe': 1,
+							'truck': 1,
+							'tank': 0
+						},
+						{
+							'title': 'Керосин ОМ-4',
+							'subtitle': 'Татнефть',
+							'icon': 'kerosene',
+							'sum': '55 000',
+							'pipe': 1,
+							'truck': 0,
+							'tank': 0
+						},
+						{
+							'title': 'Газовый конденсат ВКК-98',
+							'subtitle': 'Татнефть',
+							'icon': 'gas',
+							'sum': '55 000',
+							'pipe': 0,
+							'truck': 1,
+							'tank': 1
+						}
+					])
+				a.production__button.production__button_mobile.button.button_secondary(href='#') Перейти в каталог

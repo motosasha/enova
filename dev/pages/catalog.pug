@@ -1,0 +1,135 @@
+extends ../pug/layout_default.pug
+
+block variables
+	- var isMainPage = false;
+
+block pageMain
+	section.layout.layout_catalog
+		.grid
+			.layout__side
+				h1.page__heading(data-aos='fade-up', data-aos-duration='750') Продукция
+				a.button.button_secondary.button_filter.layout__button(href='#', data-hystmodal='#filter')
+					svg.button__icon
+						use(xlink:href='img/svgSprite.svg#icon__filter')
+					| Фильтр
+				.layout__scroll(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250')
+					+form_filter
+			.layout__main
+				.catalog-sections(data-aos='fade-up', data-aos-duration='750', data-aos-delay='500')
+					.catalog-sections__scroll
+						.catalog-sections__inner
+							.catalog-sections__item.catalog-sections__item_active Бензин
+							.catalog-sections__item Дизельное топливо
+							.catalog-sections__item Керосин
+							.catalog-sections__item Сжиженный углеводородный газ
+				+catalog-grid([
+					{
+						'title': 'Бензин АИ-100',
+						'subtitle': 'Татнефть',
+						'icon': 'petrol',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 0,
+						'tank': 1
+					},
+					{
+						'title': 'Дизельное топливо АО-12',
+						'subtitle': 'Татнефть',
+						'icon': 'diesel',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 1,
+						'tank': 0
+					},
+					{
+						'title': 'Керосин ОМ-4',
+						'subtitle': 'Татнефть',
+						'icon': 'kerosene',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 0,
+						'tank': 0
+					},
+					{
+						'title': 'Газовый конденсат ВКК-98',
+						'subtitle': 'Татнефть',
+						'icon': 'gas',
+						'sum': '55 000',
+						'pipe': 0,
+						'truck': 1,
+						'tank': 1
+					},
+					{
+						'title': 'Бензин АИ-100',
+						'subtitle': 'Татнефть',
+						'icon': 'petrol',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 0,
+						'tank': 1
+					},
+					{
+						'title': 'Дизельное топливо АО-12',
+						'subtitle': 'Татнефть',
+						'icon': 'diesel',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 1,
+						'tank': 0
+					},
+					{
+						'title': 'Керосин ОМ-4',
+						'subtitle': 'Татнефть',
+						'icon': 'kerosene',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 0,
+						'tank': 0
+					},
+					{
+						'title': 'Газовый конденсат ВКК-98',
+						'subtitle': 'Татнефть',
+						'icon': 'gas',
+						'sum': '55 000',
+						'pipe': 0,
+						'truck': 1,
+						'tank': 1
+					},
+					{
+						'title': 'Бензин АИ-100',
+						'subtitle': 'Татнефть',
+						'icon': 'petrol',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 0,
+						'tank': 1
+					},
+					{
+						'title': 'Дизельное топливо АО-12',
+						'subtitle': 'Татнефть',
+						'icon': 'diesel',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 1,
+						'tank': 0
+					},
+					{
+						'title': 'Керосин ОМ-4',
+						'subtitle': 'Татнефть',
+						'icon': 'kerosene',
+						'sum': '55 000',
+						'pipe': 1,
+						'truck': 0,
+						'tank': 0
+					}
+				])
+
+				.catalog-actions
+					button.button.button_tertiary.button_prev
+						svg.button__icon
+							use(xlink:href='img/svgSprite.svg#icon__shevron_left')
+						| Назад
+					button.button.button_next Далее
+						svg.button__icon
+							use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+	+popup_filter

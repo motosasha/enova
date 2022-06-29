@@ -20,6 +20,15 @@
 	&__main {
 		flex: 1 0 auto;
 		overflow: hidden;
+		&_pt {
+			padding-top: 6.5rem;
+			@media screen and (min-width: $screen-ti) {
+				padding-top: 12rem;
+			}
+			@media screen and (min-width: $screen-dxl) {
+				padding-top: 10.5rem;
+			}
+		}
 	}
 	&__nav {
 		height: 100%;
@@ -45,5 +54,18 @@
 	&__footer {
 		flex: 0 0 auto;
 		width: 100%;
+	}
+	&__heading {
+		color: var(--emerald_primary);
+		font-size: 3rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1;
+		margin: 0 0 2rem;
+		@media screen and (min-width: $screen-d) {
+			font-size: 4.5rem;
+			line-height: 1.2223;
+			margin: 0 0 4.5rem;
+		}
 	}
 }

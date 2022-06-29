@@ -1,0 +1,7 @@
+//- Все примеси в этом файле должны начинаться c имени блока (catalog-grid)
+
+mixin catalog-grid(items)
+	.catalog-grid(data-aos='fade-up', data-aos-duration='750', data-aos-delay='750')
+		each item in items
+			.catalog-grid__item
+				+product-tile(item.title, item.subtitle, item.icon, item.sum, item.pipe, item.truck, item.tank)

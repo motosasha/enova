@@ -1,0 +1,29 @@
+// В этом файле должны быть стили для БЭМ-блока popup, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.popup {
+	background: var(--white_primary);
+	border-radius: 1rem;
+	max-width: 40rem;
+	padding: 4rem 2rem 3rem;
+	width: 90%;
+	@media screen and (min-width: $screen-t) {
+		padding: 4rem;
+	}
+	&_filter {}
+	:is(.popup) &__close {
+		background: none;
+		display: block;
+		height: 3rem;
+		outline: none;
+		padding: 0;
+		right: 1rem;
+		top: 1rem;
+		width: 3rem;
+	}
+	&__icon {
+		height: 3rem;
+		width: 3rem;
+	}
+}

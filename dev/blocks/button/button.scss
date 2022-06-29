@@ -6,13 +6,14 @@
 	appearance: none;
 	background: var(--mint_primary);
 	border: none;
-	border-radius: .2rem;
+	border-radius: .5rem;
 	color: var(--emerald_primary);
 	cursor: pointer;
 	font-size: 1.5rem;
 	font-weight: 500;
 	letter-spacing: 0.01em;
 	line-height: 1.3334;
+	outline: none;
 	padding: 1rem 2.5rem;
 	text-align: center;
 	text-decoration: none;
@@ -29,5 +30,72 @@
 		font-weight: 400;
 		line-height: 1.428571;
 		padding: .9rem 1.9rem;
+	}
+	&_tertiary {
+		background: var(--white_tertiary);
+	}
+	&_filter {
+		align-items: center;
+		background: var(--white_primary);
+		display: flex;
+		fill: var(--mint_primary);
+		gap: 1rem;
+		justify-content: center;
+		padding: .4rem;
+	}
+	&__icon {
+		flex: 0 0 auto;
+		fill: inherit;
+		height: 3rem;
+		width: 3rem;
+	}
+	&_file &__icon {
+		flex: 0 0 auto;
+		height: 4rem;
+		width: 4rem;
+		@media screen and (min-width: $screen-d) {
+			height: 5rem;
+			width: 5rem;
+		}
+	}
+	&_filter:active &__icon,
+	&_filter:hover &__icon {
+		fill: var(--emerald_primary);
+	}
+	&_next,
+	&_prev {
+		align-items: center;
+		display: flex;
+		gap: 1rem;
+		fill: var(--black_primary);
+		justify-content: space-between;
+		max-width: 18.5rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 2rem;
+		}
+	}
+	&_prev {
+		padding: .5rem 4rem .5rem 1rem;
+		@media screen and (min-width: $screen-tl) {
+			padding: 1.5rem 4rem 1.5rem 1.5rem;
+		}
+	}
+	&_next {
+		padding: .5rem 1rem .5rem 4rem;
+		@media screen and (min-width: $screen-tl) {
+			padding: 1.5rem 1.5rem 1.5rem 4rem;
+		}
+	}
+	&_file {
+		align-items: center;
+		display: flex;
+		gap: 1rem;
+		padding: .4rem 1.9rem .4rem .4rem;
+		@media screen and (min-width: $screen-d) {
+			gap: 1.5rem;
+			font-size: 2rem;
+			line-height: 1.25;
+			padding: .9rem 3rem .9rem .9rem;
+		}
 	}
 }

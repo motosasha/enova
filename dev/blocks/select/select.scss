@@ -1,0 +1,17 @@
+// В этом файле должны быть стили для БЭМ-блока select, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.select {
+	appearance: none;
+	background: url(../img/svgSprite.svg#icon__shevron_down-view) no-repeat right 1.5rem top 1.5rem, var(--white_primary);
+	background-size: 2.5rem 2.5rem;
+	border: .1rem solid var(--mint_primary);
+	border-radius: .5rem;
+	color: var(--emerald_primary);
+	font-size: 1.5rem;
+	letter-spacing: 0.01em;
+	line-height: 1;
+	outline: none;
+	padding: 1.9rem;
+}

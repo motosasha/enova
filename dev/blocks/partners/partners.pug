@@ -3,5 +3,5 @@
 mixin partners(partners)
 	.partners__grid
 		each partner in partners
-			.partners__item
+			.partners__item(data-aos='fade-up', data-aos-duration='750', data-aos-delay= partner.delay)
 				img(src='assets/logo__partner_' + partner.logo + '.svg')

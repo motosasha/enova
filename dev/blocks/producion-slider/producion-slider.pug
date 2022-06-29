@@ -1,9 +1,0 @@
-//- Все примеси в этом файле должны начинаться c имени блока (producion-slider)
-
-mixin producion-slider(slides)
-	.producion-slider.swiper
-		.producion-slider__inner.swiper-wrapper
-			each slide in slides
-				.producion-slider__slide.swiper-slide
-					+product-tile(slide.title, slide.subtitle, slide.icon, slide.sum , slide.href, slide.pipe, slide.truck, slide.tank)
-		.producion-slider__pagination.swiper-pagination

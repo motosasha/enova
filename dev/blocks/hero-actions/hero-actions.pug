@@ -3,8 +3,9 @@
 mixin hero-actions(items)
 	.hero-actions
 		each item in items
-			a.hero-actions__item(href= item.href)
-				.hero-actions__title!= item.title
-				.hero-actions__descr!= item.descr
-				svg.hero-actions__arrow
-					use(xlink:href='img/svgSprite.svg#icon__arrow_right')
+			.hero-actions__inner(data-aos='fade-up', data-aos-duration='750', data-aos-delay= item.delay)
+				a.hero-actions__item(href= item.href)
+					.hero-actions__title!= item.title
+					.hero-actions__descr!= item.descr
+					svg.hero-actions__arrow
+						use(xlink:href='img/svgSprite.svg#icon__arrow_right')

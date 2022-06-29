@@ -2,7 +2,7 @@
 // модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
-.producion {
+.production {
 	&__inner {
 		display: flex;
 		flex-direction: column;
@@ -17,7 +17,7 @@
 			justify-content: space-between;
 		}
 	}
-	:is(.producion) &__title {
+	:is(.production) &__title {
 		margin: 0;
 	}
 	&__slider {

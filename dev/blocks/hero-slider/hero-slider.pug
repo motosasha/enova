@@ -4,10 +4,9 @@ mixin hero-slider(slides)
 	.hero-slider.swiper
 		.hero-slider__inner.swiper-wrapper
 			each slide in slides
-				.hero-slider__slide.swiper-slide
+				.hero-slider__slide.swiper-slide(style='background: linear-gradient(90deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%), url("assets/' + slide.bg + '") center no-repeat; background-size: cover;')
 					h1.hero-slider__title!= slide.title
-					a.hero-slider__button.button(href= slide.href)!= slide.button
-					img.hero-slider__img(src='assets/' + slide.img, style='object-position:' + slide.bgPos + ' center;' alt='')
+					a.hero-slider__button.button(href= slide.href, data-hystmodal= slide.isPopupButton ? '#' + slide.popup: '')!= slide.button
 	.hero__slider-pagination.swiper-pagination
 	.hero__slider-arrow.hero__slider-prev.swiper-button-prev
 		svg.swiper-icon
