@@ -1,0 +1,27 @@
+extends ../pug/layout_no-footer.pug
+
+block variables
+	- var isMainPage = false;
+
+block pageMain
+	section.section.layout.layout_map
+		.grid
+			.layout__side
+				h1.page__heading(data-aos='fade-up', data-aos-duration='750') Карта базисов
+				a.button.button_secondary.button_filter.layout__button(href='#', data-hystmodal='#filter', data-aos='fade-up', data-aos-duration='750', data-aos-delay='250')
+					svg.button__icon
+						use(xlink:href='img/svgSprite.svg#icon__filter')
+					| Фильтр
+				.layout__scroll(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250')
+					+form_filter
+			.layout__main
+				+map-card(
+					'ООО «Татнефтьавиасервис»',
+					'420017, РТ, Лаишевский район, Международный аэропорт «Казань»',
+					[
+						{'title': 'Бензин АИ-100', 'descr': 'от 57 500 ₽'},
+						{'title': 'Бензин АИ-101', 'descr': 'от 57 500 ₽'}
+					],
+					'Всего <span>10 видов</span> нефтепродуктов'
+				)
+	+popup_filter

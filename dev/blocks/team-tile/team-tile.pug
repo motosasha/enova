@@ -1,0 +1,8 @@
+//- Все примеси в этом файле должны начинаться c имени блока (team-tile)
+
+mixin team-tile(img, f, io, descr, delay)
+	.team-tile(data-aos='fade-up', data-aos-duration='750', data-aos-delay= delay)
+		img.team-tile__avatar(src='assets/img__team_' + img + '.jpg')
+		.team-tile__info
+			.team-tile__name #[span #{f}] #{io}
+			.team-tile__descr!= descr

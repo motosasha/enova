@@ -1,0 +1,55 @@
+extends ../pug/layout_default.pug
+
+block variables
+	- var isMainPage = false;
+
+block pageMain
+	section.section.about
+		.grid
+			.about__inner
+				figure.about__figure(data-aos='fade-left', data-aos-duration='750', data-aos-delay='1000')
+					img.about__img(src='assets/img__ed.jpg')
+					figcaption.about__caption
+						.about__name #[span Фаррахов] Руслан Эдуардович
+						.about__position Исполнительный директор
+				p.about__lead(data-aos='fade-up', data-aos-duration='750') #[strong Компания ООО «Энова»] — создана в 2009 году профессионалами с успешным опытом в финансовой, биржевой и нефтегазовой отраслях. Сегодня компания является крупнейшим брокером, предоставляющим услуги на биржевом и внебиржевом российском рынке нефтепродуктов.
+				blockquote.about__quote(data-aos='fade-up', data-aos-duration='750', data-aos-delay='500')
+					p.about__p Каждый из нас понимает очевидную вещь: новая модель организационной деятельности представляет собой интересный эксперимент проверки кластеризации усилий. Повседневная практика показывает, что современная методология разработки создаёт предпосылки для инновационных методов управления процессами. Таким образом, граница обучения кадров играет определяющее значение для вывода текущих активов.
+				.about__row
+					+about-grid([
+						{'digit': 78, 'descr': 'регионов страны', 'delay': 750},
+						{'digit': '1000+', 'descr': 'компаний', 'delay': 850},
+						{'digit': '15 000', 'descr': 'сделок в год', 'delay': 300},
+						{'digit': 'Топ 500', 'descr': 'РБК по выручке', 'delay': 400},
+						{'digit': '№ 1', 'descr': 'брокер на СПбМТСБ', 'delay': 500}
+					])
+					.about__button(data-aos='fade-left', data-aos-duration='750', data-aos-delay='250')
+						a.button.button_secondary.button_file(href='file.pdf', download)
+							svg.button__icon
+								use(xlink:href='img/svgSprite.svg#icon__file_pdf')
+							| Скачать презентацию
+	section.section.team(data-aos='fade-up', data-aos-duration='750')
+		.grid
+			.section__inner.team__inner
+				h2.section__title.team__title Наша команда
+				.team__grid
+					+team-tile('farrakhov', 'Фаррахов', 'Руслан Эдуардович', 'Исполнительный директор', 250)
+					+team-tile('cherviak', 'Червяк', 'Анастасия Алексеевна', 'Руководитель отдела закупок и логистики', 500)
+					+team-tile('yakhin', 'Яхин', 'Айрат Сергеевич', 'Коммерческий директор', 750)
+					+team-tile('farrakhova', 'Фаррахова', 'Анжелика Ахатовна', 'Финансовый директор', 1000)
+	section.section.partners(data-aos='fade-up', data-aos-duration='750')
+		.grid
+			.section__inner
+				h2.section__title Партнёры компании
+				+partners([
+					{'logo': 'br', 'delay': 100},
+					{'logo': 'sb', 'delay': 200},
+					{'logo': 'spb', 'delay': 300},
+					{'logo': 'sh', 'delay': 400},
+					{'logo': 'gp', 'delay': 500},
+					{'logo': 'trn', 'delay': 600},
+					{'logo': 'tn', 'delay': 700},
+					{'logo': 'rn', 'delay': 800},
+					{'logo': 'sng', 'delay': 900},
+					{'logo': 'lo', 'delay': 1000}
+				])

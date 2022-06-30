@@ -10,6 +10,7 @@
 @import "dev/scss/typography.scss";
 @import "dev/scss/reboot.scss";
 @import "dev/scss/fonts.scss";
+@import "dev/blocks/about/about.scss";
 @import "dev/blocks/button/button.scss";
 @import "dev/blocks/card/card.scss";
 @import "dev/blocks/catalog-actions/catalog-actions.scss";
@@ -28,6 +29,7 @@
 @import "dev/blocks/info-tiles/info-tiles.scss";
 @import "dev/blocks/input/input.scss";
 @import "dev/blocks/layout/layout.scss";
+@import "dev/blocks/map-card/map-card.scss";
 @import "dev/blocks/nav/nav.scss";
 @import "dev/blocks/page/page.scss";
 @import "dev/blocks/partners/partners.scss";
@@ -42,6 +44,8 @@
 @import "dev/blocks/shipping/shipping.scss";
 @import "dev/blocks/side-nav/side-nav.scss";
 @import "dev/blocks/socials/socials.scss";
+@import "dev/blocks/team/team.scss";
+@import "dev/blocks/team-tile/team-tile.scss";
 
 /*!*
  * ВНИМАНИЕ! Этот файл генерируется автоматически.

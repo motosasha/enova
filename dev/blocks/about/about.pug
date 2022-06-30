@@ -1,0 +1,9 @@
+//- Все примеси в этом файле должны начинаться c имени блока (about)
+
+mixin about-grid(items)
+	.about__grid
+		.about__filler
+		each item in items
+			.about__item(data-aos='fade-up', data-aos-duration='750', data-aos-delay!= item.delay)
+				.about__digit!= item.digit
+				.about__descr!= item.descr

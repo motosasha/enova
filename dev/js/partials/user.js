@@ -127,4 +127,13 @@ window.onload = function() {
 			item.classList.add('catalog-sections__item_active');
 		}, false)
 	})
+
+	// map card
+	if (document.querySelector('.map-card')) {
+		let $mapCard = document.querySelector('.map-card');
+		let $cardCross = $mapCard.querySelector('.map-card__close');
+		$cardCross.addEventListener('click', function () {
+			$mapCard.classList.toggle('map-card_open');
+		})
+	}
 };

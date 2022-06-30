@@ -1,0 +1,21 @@
+//- Все примеси в этом файле должны начинаться c имени блока (map-card)
+
+mixin map-card(title, descr, list, info)
+	.map-card.map-card_open
+		.map-card__close
+			svg.map-card__icon
+				use(xlink:href='img/svgSprite.svg#icon__cross')
+		.map-card__title!= title
+		.map-card__descr!= descr
+		+shipping('map-card__shipping', 1, 0, 1)
+		.map-card__scroll
+			.map-card__list
+				each li in list
+					.map-card__li
+						a.map-card__link(href='#')
+							svg.map-card__li-icon
+								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+							.map-card__li-title!= li.title
+							.map-card__li-descr!= li.descr
+		.map-card__info!= info
+		a.button.button_secondary.map-card__button(href='#') Все продукты базиса

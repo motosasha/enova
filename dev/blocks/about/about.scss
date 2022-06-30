@@ -1,0 +1,222 @@
+// В этом файле должны быть стили для БЭМ-блока about, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.about {
+	@media screen and (min-width: $screen-tl) {
+		background: url('../img/bg__pattern_grey.png') no-repeat top -100rem right -50rem;
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_grey.png') no-repeat top -75rem right -50rem;
+	}
+	&__inner {
+		padding: 2rem 0 7.5rem;
+		position: relative;
+		@media screen and (min-width: $screen-tl) {
+			padding: 3.5rem 0 10rem;
+		}
+	}
+	&__figure {
+		aspect-ratio: 1.27/1;
+		margin: 0 0 2.5rem;
+		position: relative;
+		width: 100%;
+		@media screen and (min-width: $screen-tl) {
+			aspect-ratio: 0.8125/1;
+			position: absolute;
+			right: 0;
+			top: 3.5rem;
+			width: 40%;
+		}
+		@media screen and (min-width: $screen-d) {
+			width: 32.5%;
+		}
+	}
+	&__img {
+		display: block;
+		height: 100%;
+		object-fit: cover;
+		object-position: top;
+		width: 100%;
+	}
+	&__caption {
+		background: linear-gradient(0deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0) 100%);
+		bottom: 0;
+		padding: 3rem 1.5rem 1.5rem;
+		position: absolute;
+		width: 100%;
+		@media screen and (min-width: $screen-d) {
+			padding: 5rem 2.5rem 2.5rem;
+		}
+	}
+	&__name {
+		color: var(--white_primary);
+		font-size: 1.5rem;
+		letter-spacing: 0.01em;
+		line-height: 1;
+		span {
+			font-weight: 700;
+		}
+		@media screen and (min-width: $screen-d) {
+			font-size: 2rem;
+		}
+	}
+	&__position {
+		color: var(--white_primary);
+		font-size: 1.2rem;
+		line-height: 1.25;
+		letter-spacing: 0.01em;
+		margin-top: .5rem;
+		@media screen and (min-width: $screen-d) {
+			font-size: 1.5rem;
+			line-height: 1.33;
+		}
+	}
+	&__lead {
+		color: var(--emerald_primary);
+		font-size: 2rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.5;
+		margin: 0;
+		strong {
+			font-weight: 700;
+		}
+		@media screen and (min-width: $screen-tl) {
+			width: 55%;
+		}
+		@media screen and (min-width: $screen-d) {
+			font-size: 3rem;
+			margin-top: 6.5rem;
+			width: 60%;
+		}
+	}
+	&__quote {
+		border-left: .5rem solid var(--mint_quaternary);
+		margin: 2.5rem 0 0;
+		padding-left: 2rem;
+		@media screen and (min-width: $screen-tl) {
+			margin-left: 5%;
+			width: 50%;
+		}
+		@media screen and (min-width: $screen-d) {
+			border-left: 1rem solid var(--mint_quaternary);
+			margin: 5.5rem 0 0 5%;
+			padding-left: 4rem;
+			width: 55%;
+		}
+	}
+	&__p {
+		color: var(--emerald_secondary);
+		font-size: 1.5rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.67;
+		margin: 0;
+		@media screen and (min-width: $screen-d) {
+			font-size: 2rem;
+			line-height: 1.5
+		}
+	}
+	&__row {
+		margin-top: 3rem;
+		@media screen and (min-width: $screen-tl) {
+			align-items: flex-end;
+			display: flex;
+			justify-content: space-between;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin-top: 6rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			margin-top: 12rem;
+		}
+	}
+	&__grid {
+		display: grid;
+		gap: 2.5rem;
+		grid-template-columns: 1fr 1fr;
+		@media screen and (min-width: $screen-t) {
+			grid-template-columns: repeat(3, 1fr);
+		}
+		@media screen and (min-width: $screen-tl) {
+			margin-left: 5%;
+			width: 50%;
+		}
+		@media screen and (min-width: $screen-d) {
+			gap: 3rem 5rem;
+			width: 65%;
+		}
+		@media screen and (min-width: $screen-dl) {
+			gap: 5rem 8rem;
+			width: 65%;
+		}
+	}
+	&__filler {
+		display: none;
+		@media screen and (min-width: $screen-tl) {
+			display: block;
+			order: 2;
+		}
+	}
+	&__item {
+		display: grid;
+		gap: .5rem;
+		@media screen and (min-width: $screen-tl) {
+			&:nth-child(2),
+			&:nth-child(3) {
+				order: 1;
+			}
+			&:nth-child(4),
+			&:nth-child(5),
+			&:nth-child(6) {
+				order: 2;
+			}
+		}
+	}
+	&__digit {
+		color: var(--mint_primary);
+		font-size: 4rem;
+		font-weight: 300;
+		letter-spacing: -0.02em;
+		line-height: 1;
+		@media screen and (min-width: $screen-tl) {
+			transform: translateX(-.5rem);
+		}
+		@media screen and (min-width: $screen-d) {
+			font-size: 6rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			font-size: 7rem;
+		}
+	}
+	&__descr {
+		color: var(--black_primary);
+		font-size: 1.5rem;
+		letter-spacing: 0.01em;
+		line-height: 1;
+		white-space: nowrap;
+		@media screen and (min-width: $screen-d) {
+			font-size: 2rem;
+		}
+	}
+	:is(.about) &__button {
+		margin: 3.5rem auto 0;
+		width: 23.5rem;
+		@media screen and (min-width: $screen-tl) {
+			margin: 0 0 .5rem;
+			width: auto;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin: 0 0 1rem;
+		}
+	}
+	&__icon {
+		height: 4rem;
+		width: 4rem;
+		@media screen and (min-width: $screen-d) {
+			height: 5rem;
+			width: 5rem;
+		}
+	}
+}

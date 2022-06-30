@@ -1,0 +1,24 @@
+// В этом файле должны быть стили для БЭМ-блока team, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.team {
+	&__inner {
+		display: flex;
+		flex-direction: column;
+	}
+	&__grid {
+		display: grid;
+		gap: 2rem;
+		@media screen and (min-width: $screen-t) {
+			grid-template-columns: 1fr 1fr;
+			gap: 4rem 2rem;
+		}
+		@media screen and (min-width: $screen-tl) {
+			grid-template-columns: 1fr 1fr 1fr;
+		}
+		@media screen and (min-width: $screen-d) {
+			grid-template-columns: repeat(4, 1fr);
+		}
+	}
+}
