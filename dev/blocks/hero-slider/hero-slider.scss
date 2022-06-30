@@ -30,7 +30,6 @@
 		line-clamp: 4;
 		line-height: 1.25;
 		margin: 0 0 2rem;
-		//max-width: 75%;
 		overflow: hidden;
 		text-overflow: ellipsis;
 		@media screen and (min-width: $screen-ti) {
@@ -50,28 +49,6 @@
 			font-size: 1.8rem;
 			line-height: 1.111112;
 			padding: 1.5rem 3.5rem;
-		}
-	}
-	&__img {
-		clip-path: polygon(30% 0%, 100% 0%, 100% 100%, 0% 100%);
-		height: 100%;
-		object-fit: cover;
-		object-position: 42% center;
-		position: absolute;
-		right: -.1rem;
-		top: 0;
-		width: 10rem;
-		@media screen and (min-width: $screen-ti) {
-			width: 30rem;
-		}
-		@media screen and (min-width: $screen-d) {
-			width: 40rem;
-		}
-		@media screen and (min-width: $screen-dl) {
-			width: 50rem;
-		}
-		@media screen and (min-width: $screen-dxl) {
-			width: 65rem;
 		}
 	}
 }

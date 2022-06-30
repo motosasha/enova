@@ -1,0 +1,15 @@
+//- Все примеси в этом файле должны начинаться c имени блока (market-tile)
+
+mixin market-tariffs(items)
+	.market-tariffs
+		each item in items
+			.market-tariffs__item
+				.market-tariffs__row
+					h3.market-tariffs__title!= item.title
+					.market-tariffs__price!= item.price + ' ₽/ТН'
+				if item.p
+					p.market-tariffs__p!= item.p
+				ul.market-tariffs__list
+					each li in item.list
+						li.market-tariffs__li!= li
+				a.button.market-tariffs__button(href='#') Выбрать тариф

@@ -1,0 +1,74 @@
+// В этом файле должны быть стили для БЭМ-блока market-info, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.market-info {
+	&__inner {
+		@media screen and (min-width: $screen-d) {
+			display: grid;
+			gap: 5rem;
+			grid-template-columns: auto 40rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			gap: 10rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			gap: 15rem;
+			grid-template-columns: auto 48rem;
+		}
+	}
+	&__col {}
+	&__col + &__col {
+		margin-top: 4rem;
+		@media screen and (min-width: $screen-dl) {
+			margin-top: 8rem;
+		}
+	}
+	&__col-title {
+		color: var(--black_primary);
+		font-size: 2.5rem;
+		font-weight: 300;
+		line-height: 1;
+		letter-spacing: 0.01em;
+		margin-bottom: 2.5rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 3.5rem;
+			line-height: 1.15;
+		}
+	}
+	&__icon {
+		height: 9.6rem;
+		width: 20rem;
+		@media screen and (min-width: $screen-tl) {
+			height: 19.2rem;
+			width: 40rem;
+		}
+	}
+	&__title {
+		color: var(--emerald_primary);
+		font-size: 2.5rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.2;
+		margin: 0 0 2.5rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 5rem;
+			line-height: 1.4;
+		}
+	}
+	&__p {
+		color: var(--emerald_primary);
+		font-weight: 300;
+		font-size: 1.5rem;
+		letter-spacing: 0.01em;
+		line-height: 1.67;
+		margin: 0;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 3rem;
+			line-height: 1.5;
+		}
+	}
+	&__p + &__p {
+		margin-top: 1.5rem;
+	}
+}

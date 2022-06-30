@@ -1,0 +1,54 @@
+extends ../pug/layout_default.pug
+
+block variables
+	- var pageMainPT = false;
+
+block pageMain
+	section.market(data-aos='fade-in', data-aos-duration='500', data-aos-delay='500')
+		.grid
+			.market__inner
+				.market__banner(data-aos='fade-right', data-aos-duration='750', data-aos-delay='1000')
+					h1.market__title Прямые цены поставщиков с минимальными затратами
+					a.market__button.button(href='#', data-hystmodal='#callback') Стать клиентом
+	section.section.market-info
+		.grid
+			.market-info__inner
+				.market-info__col
+					img.market-info__icon(src='assets/logo__partner_spb.svg')
+					h2.market-info__title Брокерское обслуживание на бирже СПбМТСБ
+					p.market-info__p Брокерское обслуживание на бирже СПбМТСБ — возможность приобретать биржевой товар у производителей по прямым ценам поставщиков с минимальными затратами.
+					p.market-info__p Брокерское обслуживание клиентов осуществляется в рамках единого договора присоединения к регламенту компании «Солид-товарные рынки»
+				.market-info__col
+					.market-info__col-title Тарифы
+					+market-tariffs([
+						{
+							'title': 'Стандартный',
+							'price': 100,
+							'list': [
+								'Товарное финансирование от 12 %',
+								'Интерактивный личный кабинет',
+								'Онлайн отчёт по сделкам',
+								'Отчёт по отгрузкам'
+							]
+						},
+						{
+							'title': 'Универсальный',
+							'price': 150,
+							'p': 'Всё, что в «Стандартном тарифе» +',
+							'list': [
+								'Электронный документооборот в системе Диадок',
+								'Онлайн отчёт по дислокации вагонов',
+								'Анадитический терминал КОММОД',
+								'Правовая поддержка',
+								'Обучение',
+								'Личный брокер'
+							]
+						},
+					])
+	section.section.market-banner
+		.grid
+			.market-banner__banner
+				.market-banner__inner
+					.market-banner__title Не нашли для себя подходящий продукт?
+					.market-banner__descr Обратитесь к специалисту по брокерскому обслуживанию чтобы мы могли подобрать продукт под ваши цели.
+				a.button.button_quternary.market-banner__button(href='contacts.html#form') Задать вопрос

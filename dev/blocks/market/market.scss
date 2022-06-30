@@ -1,0 +1,78 @@
+// В этом файле должны быть стили для БЭМ-блока market, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.market {
+	background: url('../img/bg__pattern_emerald.png') no-repeat 60% 50%, var(--emerald_primary);
+	background-size: 97rem 97rem, 100% 100%;
+	padding: 8.5rem 0 2rem;
+	@media screen and (min-width: $screen-ti) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat 60% 100%, var(--emerald_primary);
+		background-size: 97rem 97rem, 100% 100%;
+		padding: 15rem 0 3rem;
+	}
+	@media screen and (min-width: $screen-tl) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat 60% 75%, var(--emerald_primary);
+		background-size: 160rem 160rem, 100% 100%;
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat 110% 80%, var(--emerald_primary);
+		background-size: 240rem 240rem, 100% 100%;
+		padding: 14.5rem 0 4rem;
+	}
+	&__inner {}
+	&__banner {
+		align-items: flex-start;
+		background: linear-gradient(180deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), url('../img/bg__market-banner.jpg') no-repeat center;
+		background-size: cover;
+		border-radius: 1rem;
+		display: flex;
+		flex-direction: column;
+		justify-content: space-between;
+		height: 16rem;
+		overflow: hidden;
+		padding: 2rem;
+		@media screen and (min-width: $screen-t) {
+			background: linear-gradient(90deg, rgba(0, 0, 0, 0.4) 0%, rgba(0, 0, 0, 0) 100%), url('../img/bg__market-banner.jpg') no-repeat center;
+			height: 25rem;
+		}
+		@media screen and (min-width: $screen-ti) {
+			height: 30rem;
+			padding: 4rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			height: 46rem;
+		}
+	}
+	&__title {
+		-webkit-box-orient: vertical;
+		color: var(--white_primary);
+		display: -webkit-box;
+		font-size: 2rem;
+		font-weight: 300;
+		letter-spacing: 0.02em;
+		-webkit-line-clamp: 4;
+		line-clamp: 4;
+		line-height: 1.25;
+		margin: 0 0 2rem;
+		overflow: hidden;
+		text-overflow: ellipsis;
+		@media screen and (min-width: $screen-ti) {
+			font-size: 3rem;
+			max-width: 60rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			font-size: 4rem;
+		}
+	}
+	&__button {
+		border-radius: .5rem;
+		box-shadow: var(--shadow);
+		display: inline-block;
+		@media screen and (min-width: $screen-ti) {
+			font-size: 1.8rem;
+			line-height: 1.111112;
+			padding: 1.5rem 3.5rem;
+		}
+	}
+}
