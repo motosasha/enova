@@ -5,19 +5,21 @@ block pageMain
 	section.card
 		.grid
 			.card__inner
-				a.button.button_tertiary.button_prev.card_backto(href='catalog.html', data-aos='fade-up', data-aos-duration='750')
-					svg.button__icon
-						use(xlink:href='img/svgSprite.svg#icon__shevron_left')
-					| Назад в каталог
+				.card__block(data-aos='fade-up', data-aos-duration='750')
+					a.button.button_tertiary.button_prev.card_backto(href='catalog.html')
+						svg.button__icon
+							use(xlink:href='img/svgSprite.svg#icon__shevron_left')
+						| Назад в каталог
 				.card__info
-					svg.card__icon
+					svg.card__icon(data-aos='fade-up', data-aos-duration='750', data-aos-delay='500')
 						use(xlink:href='img/svgSprite.svg#icon__solid_petrol')
 					h1.card__title(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250') Автомобильный бензин АИ-100-К5 экологического класса К5 марки TANECO-100 «EURO-6» по СТО 78689379-50-2020
 					.card__row
 						.card__price(data-aos='fade-up', data-aos-duration='750', data-aos-delay='750') 55 300 ₽
-						a.card__button.button.button_next(href='#', data-aos='fade-up', data-aos-duration='750', data-aos-delay='1000') Заказать
-							svg.button__icon
-								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+						.card__block(data-aos='fade-up', data-aos-duration='750', data-aos-delay='1000')
+							a.card__button.button.button_next(href='#') Заказать
+								svg.button__icon
+									use(xlink:href='img/svgSprite.svg#icon__shevron_right')
 					.card__cols
 						.card__col(data-aos='fade-up', data-aos-duration='750', data-aos-delay='1250')
 							.card__prod АО «Танеко»
