@@ -4,22 +4,22 @@ block variables
 	- var pageMainPT = false;
 
 block pageMain
-	section.market(data-aos='fade-in', data-aos-duration='500', data-aos-delay='500')
+	section.market(data-aos='fade-in', data-aos-duration='500')
 		.grid
 			.market__inner
-				.market__banner(data-aos='fade-right', data-aos-duration='750', data-aos-delay='1000')
+				.market__banner(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250')
 					h1.market__title Прямые цены поставщиков с минимальными затратами
 					a.market__button.button(href='#', data-hystmodal='#callback') Стать клиентом
 	section.section.market-info
 		.grid
 			.market-info__inner
 				.market-info__col
-					img.market-info__icon(src='assets/logo__partner_spb.svg')
-					h2.market-info__title Брокерское обслуживание на бирже СПбМТСБ
-					p.market-info__p Брокерское обслуживание на бирже СПбМТСБ — возможность приобретать биржевой товар у производителей по прямым ценам поставщиков с минимальными затратами.
-					p.market-info__p Брокерское обслуживание клиентов осуществляется в рамках единого договора присоединения к регламенту компании «Солид-товарные рынки»
+					img.market-info__icon(src='assets/logo__partner_spb.svg', data-aos='fade-up', data-aos-duration='750', data-aos-delay='500')
+					h2.market-info__title(data-aos='fade-up', data-aos-duration='750') Брокерское обслуживание на бирже СПбМТСБ
+					p.market-info__p(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250') Брокерское обслуживание на бирже СПбМТСБ — возможность приобретать биржевой товар у производителей по прямым ценам поставщиков с минимальными затратами.
+					p.market-info__p(data-aos='fade-up', data-aos-duration='750', data-aos-delay='500') Брокерское обслуживание клиентов осуществляется в рамках единого договора присоединения к регламенту компании «Солид-товарные рынки»
 				.market-info__col
-					.market-info__col-title Тарифы
+					.market-info__col-title(data-aos='fade-up', data-aos-duration='750') Тарифы
 					+market-tariffs([
 						{
 							'title': 'Стандартный',
@@ -29,7 +29,8 @@ block pageMain
 								'Интерактивный личный кабинет',
 								'Онлайн отчёт по сделкам',
 								'Отчёт по отгрузкам'
-							]
+							],
+							'delay': 250
 						},
 						{
 							'title': 'Универсальный',
@@ -42,12 +43,13 @@ block pageMain
 								'Правовая поддержка',
 								'Обучение',
 								'Личный брокер'
-							]
+							],
+							'delay': 0
 						},
 					])
 	section.section.market-banner
 		.grid
-			.market-banner__banner
+			.market-banner__banner(data-aos='fade-up', data-aos-duration='750')
 				.market-banner__inner
 					.market-banner__title Не нашли для себя подходящий продукт?
 					.market-banner__descr Обратитесь к специалисту по брокерскому обслуживанию чтобы мы могли подобрать продукт под ваши цели.

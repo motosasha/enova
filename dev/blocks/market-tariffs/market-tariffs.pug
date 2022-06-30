@@ -3,7 +3,7 @@
 mixin market-tariffs(items)
 	.market-tariffs
 		each item in items
-			.market-tariffs__item
+			.market-tariffs__item(data-aos='fade-left', data-aos-duration='750', data-aos-delay=item.delay)
 				.market-tariffs__row
 					h3.market-tariffs__title!= item.title
 					.market-tariffs__price!= item.price + ' ₽/ТН'
