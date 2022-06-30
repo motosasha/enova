@@ -1,0 +1,65 @@
+// В этом файле должны быть стили для БЭМ-блока feedback, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.feedback {
+	&__inner {
+		@media screen and (min-width: $screen-tl) {
+			display: grid;
+			gap: 2rem;
+			grid-template-columns: 1fr 2fr;
+		}
+		@media screen and (min-width: $screen-tl) {
+			display: grid;
+			gap: 2rem;
+			grid-template-columns: calc(33.3333% - 1rem) calc(66.6667% - 1rem);
+		}
+	}
+	&__col {
+		display: flex;
+		flex-direction: column;
+	}
+	&__col + &__col {
+		margin-top: 7rem;
+		@media screen and (min-width: $screen-tl) {
+			margin-top: 0;
+		}
+		@media screen and (min-width: $screen-d) {
+			display: grid;
+			gap: 2rem;
+			grid-template-columns: 1fr 1fr;
+		}
+	}
+	&__col-title {
+		color: var(--emerald_primary);
+		font-size: 3rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1;
+		margin: 0 0 2rem;
+	}
+	&__partner-card {
+		margin: 0 0 2rem;
+		@media screen and (min-width: $screen-d) {
+			margin: 0 0 2.5rem;
+			max-width: 38.5rem;
+		}
+	}
+	&__descr {
+		color: var(--emerald_primary);
+		font-size: 1.5rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.6667;
+		margin: 0;
+		@media screen and (min-width: $screen-d) {
+			max-width: 38.5rem;
+		}
+	}
+	&__button {
+		align-self: flex-start;
+	}
+	&__block {
+		margin-bottom: 2.5rem;
+	}
+}

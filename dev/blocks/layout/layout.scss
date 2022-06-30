@@ -17,6 +17,9 @@
 	&_map {
 		height: 100%;
 	}
+	&_contacts {
+		background: var(--mint_primary);
+	}
 	.grid {
 		display: flex;
 		flex-direction: column;
@@ -36,6 +39,20 @@
 			height: calc(100vh - 10.5rem);
 		}
 	}
+	&.layout_contacts .grid {
+		flex-direction: column-reverse;
+		@media screen and (min-width: $screen-tl) {
+			display: grid;
+			gap: 0;
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (min-width: $screen-d) {
+			grid-template-columns: 45rem auto;
+		}
+		@media screen and (min-width: $screen-dl) {
+			grid-template-columns: 54rem auto;
+		}
+	}
 	:is(&) &__side {
 		padding: 4rem 0 2.5rem;
 		@media screen and (min-width: $screen-d) {
@@ -48,6 +65,32 @@
 		@media screen and (min-width: $screen-d) {
 			margin: 0;
 			padding: 4rem 0;
+		}
+	}
+	:is(&.layout_contacts) &__side {
+		background: url('../img/bg__pattern_white.png') no-repeat top -40rem right -40rem, var(--mint_primary);
+		background-size: 124rem 124rem;
+		margin: 0 -1.5rem;
+		padding-left: 1.5rem;
+		padding-right: 1.5rem;
+		@media screen and (min-width: $screen-t) {
+			background: url('../img/bg__pattern_white.png') no-repeat top -50rem right -20rem, var(--mint_primary);
+			background-size: 124rem 124rem;
+			margin: 0;
+			padding-left: 0;
+			padding-right: 0;
+		}
+		@media screen and (min-width: $screen-ti) {
+			background: url('../img/bg__pattern_white.png') no-repeat top -60rem right -10rem, var(--mint_primary);
+			background-size: 124rem 124rem;
+		}
+		@media screen and (min-width: $screen-tl) {
+			background: url('../img/bg__pattern_white.png') no-repeat top -60rem right -20rem, var(--mint_primary);
+			background-size: 124rem 124rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			background: url('../img/bg__pattern_white.png') no-repeat top -60rem right -20rem, var(--mint_primary);
+			background-size: 124rem 124rem;
 		}
 	}
 	&__button {
@@ -93,6 +136,36 @@
 		}
 		@media screen and (min-width: $screen-d) {
 			margin: 0;
+			width: calc(100% + (100vw - $container-d) / 2);
+		}
+		@media screen and (min-width: $screen-dl) {
+			width: calc(100% + (100vw - $container-dl) / 2);
+		}
+		@media screen and (min-width: $screen-dxl) {
+			width: calc(100% + (100vw - $container-dxl) / 2);
+		}
+	}
+	&_contacts &__main {
+		background: var(--mint_quaternary);
+		height: 25rem;
+		margin: 0 -1.5rem;
+		@media screen and (min-width: $screen-t) {
+			height: 35rem;
+			margin: 0 0 0 calc((100vw - $container-t) / 2 * -1);
+			width: 100vw;
+		}
+		@media screen and (min-width: $screen-ti) {
+			height: 45rem;
+			margin: 0 0 0 calc((100vw - $container-ti) / 2 * -1);
+			width: 100vw;
+		}
+		@media screen and (min-width: $screen-tl) {
+			height: 100%;
+			margin: 0;
+			width: calc(100% + (100vw - $container-tl) / 2);
+		}
+		@media screen and (min-width: $screen-d) {
+			height: 55rem;
 			width: calc(100% + (100vw - $container-d) / 2);
 		}
 		@media screen and (min-width: $screen-dl) {

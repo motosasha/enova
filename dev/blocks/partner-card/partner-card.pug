@@ -1,0 +1,8 @@
+//- Все примеси в этом файле должны начинаться c имени блока (partner-card)
+
+mixin partner-card(mod, items)
+	.partner-card(class= mod)
+		each item in items
+			.partner-card__item
+				.partner-card__key!= item.key
+				.partner-card__value!= item.value

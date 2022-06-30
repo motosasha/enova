@@ -1,0 +1,67 @@
+extends ../pug/layout_default.pug
+
+block pageMain
+	section.layout.layout_contacts(data-aos='fade-down', data-aos-duration='750')
+		.grid
+			.layout__side
+				h1.page__heading(data-aos='fade-up', data-aos-duration='750', data-aos-delay='500') Контакты
+				.contacts(data-aos='fade-up', data-aos-duration='750', data-aos-delay='750')
+					.contacts__item
+						svg.contacts__icon
+							use(xlink:href='img/svgSprite.svg#icon__company')
+						.contacts__inner
+							.contacts__title ООО «Энова»
+					.contacts__item
+						svg.contacts__icon
+							use(xlink:href='img/svgSprite.svg#icon__phone')
+						.contacts__inner
+							a.contacts__link(href='tel:89372877228') +7 937 287 72 28
+							a.contacts__link(href='tel:89372877228') +7 937 287 72 28
+					.contacts__item
+						svg.contacts__icon
+							use(xlink:href='img/svgSprite.svg#icon__mail')
+						.contacts__inner
+							a.contacts__link(href='mailto:info@enova.ru') info@enova.ru
+					.contacts__item
+						svg.contacts__icon
+							use(xlink:href='img/svgSprite.svg#icon__location')
+						.contacts__inner
+							address.contacts__address 123456, РФ, Республика Татарстан, г. Казань, ул. Поперечно-Отарская, д. 100
+			.layout__main
+	section.section.feedback
+		.grid
+			.section__inner.feedback__inner
+				.feedback__col(data-aos='fade-up', data-aos-duration='750', data-aos-delay='1000')
+					h2.feedback__col-title Карта партнёра
+					+partner-card('feedback__partner-card', [
+						{'key': 'ИНН/КПП', 'value': '1658197686 / 165801001'},
+						{'key': 'ОГРН', 'value': '1171690009314'},
+						{'key': 'Расчётный счет', 'value': '40702810829480001552'},
+						{'key': 'БИК банка', 'value': '042202824'},
+						{'key': 'Банк', 'value': 'Филиал «Нижегородский» <nobr>АО «Альфа-банк»</nobr>'}
+					])
+					a.button.button_secondary.button_file.feedback__button(href='file.pdf', download)
+						svg.button__icon
+							use(xlink:href='img/svgSprite.svg#icon__file_pdf')
+						| Скачать карту партнёра
+				.feedback__col
+					.feedback__block(data-aos='fade-up', data-aos-duration='750', data-aos-delay='1250')
+						h2.feedback__col-title Свяжитесь с нами
+						p.feedback__descr Есть над чем задуматься: реплицированные с зарубежных источников, современные исследования неоднозначны и будут заблокированы в рамках своих собственных рациональных ограничений.
+					form.form.feedback__form(data-aos='fade-up', data-aos-duration='750', data-aos-delay='1500')
+						.form__row
+							.form-field
+								label.form-field__label Имя
+								input.input(type='text', required)
+						.form__row
+							.form-field
+								label.form-field__label Телефон
+								input.input(type='tel', required)
+						.form__row
+							.form-field
+								label.form-field__label Сообщение
+								textarea.textarea(placeholder='Текст сообщения')
+						.form__row
+							button.button.form__button Отправить
+						.form__row
+							small.form__small Заполняя форму вы даёте согласие на обработку #[a(href='#') персональных данных]

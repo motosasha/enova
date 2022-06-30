@@ -1,0 +1,55 @@
+// В этом файле должны быть стили для БЭМ-блока contacts, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.contacts {
+	color: var(--emerald_primary);
+	display: grid;
+	&__item {
+		display: flex;
+	}
+	&__icon {
+		flex: 0 0 auto;
+		height: 5rem;
+		width: 5rem;
+	}
+	&__inner {
+		display: grid;
+		gap: 1rem;
+		margin-left: .5rem;
+		padding: 1.6rem 0;
+		@media screen and (min-width: $screen-d) {
+			padding: 1rem 0;
+		}
+	}
+	&__title {
+		font-size: 2rem;
+		letter-spacing: 0.01em;
+		line-height: .9;
+		@media screen and (min-width: $screen-d) {
+			font-size: 2.5rem;
+			line-height: 1.2;
+		}
+	}
+	&__link {
+		color: inherit;
+		font-size: 1.5rem;
+		letter-spacing: 0.01em;
+		line-height: 1.2;
+		text-decoration: none;
+		@media screen and (min-width: $screen-d) {
+			font-size: 20px;
+		}
+	}
+	&__address {
+		color: inherit;
+		font-size: 1.5rem;
+		font-style: normal;
+		letter-spacing: 0.01em;
+		line-height: 1.2;
+		max-width: 33rem;
+		@media screen and (min-width: $screen-d) {
+			font-size: 20px;
+		}
+	}
+}
