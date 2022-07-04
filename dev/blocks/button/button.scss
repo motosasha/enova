@@ -20,7 +20,7 @@
 	transition: background .25s ease;
 	white-space: nowrap;
 	&:hover,
-	&:active{
+	&:active {
 		background: var(--mint_secondary);
 	}
 	&_secondary {

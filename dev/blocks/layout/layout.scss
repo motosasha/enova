@@ -144,6 +144,25 @@
 		@media screen and (min-width: $screen-dxl) {
 			width: calc(100% + (100vw - $container-dxl) / 2);
 		}
+		.js-map {
+			height: 100%;
+			width: 100%;
+		}
+		.gm-style .gm-style-iw-c {
+			padding: 0;
+			background: none !important;
+		}
+		.gm-style-iw-t button.gm-ui-hover-effect {
+			display: none !important;
+		}
+		.gm-style-iw-d {
+			overflow: visible !important;
+			max-width: unset !important;
+			max-height: unset !important;
+		}
+		.gm-style .gm-style-iw-t::after {
+			content: none !important;
+		}
 	}
 	&_contacts &__main {
 		background: var(--mint_quaternary);
@@ -173,6 +192,44 @@
 		}
 		@media screen and (min-width: $screen-dxl) {
 			width: calc(100% + (100vw - $container-dxl) / 2);
+		}
+	}
+	&__icon {
+		height: 3rem;
+		width: 3rem;
+	}
+	&__map-actions {
+		display: grid;
+		gap: .5rem;
+		grid-template-columns: 1fr 1fr;
+		position: absolute;
+		right: .5rem;
+		top: .5rem;
+		z-index: 2;
+		@media screen and (min-width: $screen-t) {
+			gap: 1rem;
+			right: 1rem;
+			top: 1rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			grid-template-columns: 1fr;
+			gap: 1rem;
+			right: 1rem;
+			top: 50%;
+			transform: translateY(-50%);
+		}
+	}
+	&__map-action {
+		background: var(--mint_primary);
+		border-radius: .5rem;
+		cursor: pointer;
+		height: 4rem;
+		outline: none;
+		padding: .5rem;
+		transition: background .25s ease;
+		width: 4rem;
+		&:hover {
+			background: var(--mint_secondary);
 		}
 	}
 }

@@ -1,7 +1,7 @@
 extends ../pug/layout_no-footer.pug
 
 block pageMain
-	section.section.layout.layout_map
+	section.section.layout.layout_map.js-init-map
 		.grid
 			.layout__side
 				h1.page__heading(data-aos='fade-up', data-aos-duration='750') Карта базисов
@@ -10,15 +10,34 @@ block pageMain
 						use(xlink:href='img/svgSprite.svg#icon__filter')
 					| Фильтр
 				.layout__scroll(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250')
-					+form_filter
+					+form_filter('js-map-filter')
 			.layout__main
-				+map-card(
-					'ООО «Татнефтьавиасервис»',
-					'420017, РТ, Лаишевский район, Международный аэропорт «Казань»',
-					[
-						{'title': 'Бензин АИ-100', 'descr': 'от 57 500 ₽'},
-						{'title': 'Бензин АИ-101', 'descr': 'от 57 500 ₽'}
-					],
-					'Всего <span>10 видов</span> нефтепродуктов'
-				)
+				.layout__map-actions
+					.layout__map-actions
+						.layout__map-action.js-zoom-in
+							svg.layout__icon
+								use(xlink:href='img/svgSprite.svg#icon__plus')
+						.layout__map-action.js-zoom-out
+							svg.layout__icon
+								use(xlink:href='img/svgSprite.svg#icon__minus')
+				.js-map(data-api-key="AIzaSyB8H0omjdusXDyYuRGOLlLOSOy7P79yuMQ", data-icon="img/icon__drop.svg", data-active-icon="img/icon__drop_active.svg" data-url="assets/map.json", data-initial-lat="55.7522", data-initial-lng="37.6156", data-initial-zoom="4", data-max-zoom="16", data-min-zoom="2", data-item-zoom="4" data-scrollwheel="Y", data-breakpoint="1280")
+				.map-card.map-card_mobile.js-mobile-info-window
+					.map-card__close.js-close
+						svg.map-card__icon
+							use(xlink:href='img/svgSprite.svg#icon__cross')
+					.map-card__title.js-title
+					.map-card__descr.js-address
+					.shipping.map-card__shipping
+						.shipping__title Способы отгрузки:
+						.shipping__inner
+							.shipping__item.js-pipe(data-tippy-content='Описание отгрузки')
+								svg.shipping__icon
+									use(xlink:href='img/svgSprite.svg#icon__solid_pipe')
+							.shipping__item.js-truck(data-tippy-content='Описание отгрузки')
+								svg.shipping__icon
+									use(xlink:href='img/svgSprite.svg#icon__solid_truck')
+							.shipping__item.js-tank(data-tippy-content='Описание отгрузки')
+								svg.shipping__icon
+									use(xlink:href='img/svgSprite.svg#icon__solid_tank')
+					a.button.button_secondary.map-card__button.js-link(href='#') Все продукты базиса
 	+popup_filter

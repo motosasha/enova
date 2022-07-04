@@ -35,6 +35,7 @@
 		}
 	}
 	&__logo {
+		justify-self: start;
 		grid-area: logo;
 		&[href] {
 			transition: opacity .125s ease;
