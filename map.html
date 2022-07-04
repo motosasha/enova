@@ -69,33 +69,33 @@
 				</header>
 			</div>
 			<div class="page__main page__main_pt">
-				<section class="section layout layout_map">
+				<section class="section layout layout_map js-init-map">
 					<div class="grid">
 						<div class="layout__side">
 							<h1 class="page__heading" data-aos="fade-up" data-aos-duration="750">Карта базисов</h1><a class="button button_secondary button_filter layout__button" href="#" data-hystmodal="#filter" data-aos="fade-up" data-aos-duration="750" data-aos-delay="250"><svg class="button__icon">
 									<use xlink:href="img/svgSprite.svg#icon__filter"></use>
 								</svg>Фильтр</a>
 							<div class="layout__scroll" data-aos="fade-up" data-aos-duration="750" data-aos-delay="250">
-								<form class="form">
+								<form class="form js-map-filter">
 									<div class="form__row">
-										<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select">
+										<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select" name="type">
 												<option value="all">Выберите виды</option>
-												<option value="petroluem">Бензин</option>
-												<option value="diesel">Дизельное топливо</option>
-												<option value="kerosene">Керосин</option>
-												<option value="gas">Сжиженный углеводородный газ</option>
+												<option value="1">Бензин</option>
+												<option value="2">Дизельное топливо</option>
+												<option value="3">Керосин</option>
+												<option value="4">Сжиженный углеводородный газ</option>
 											</select></div>
 									</div>
 									<div class="form__row">
 										<div class="form-field">
 											<div class="form-field__label">Способ отгрузки</div>
-											<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="1" name="shipment" />
+											<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment" />
 													<div class="checkbox__inner"><svg class="checkbox__check">
 															<use xlink:href="img/svgSprite.svg#icon__check"></use>
 														</svg>
 														<div class="checkbox__label">Автомобить</div>
 													</div>
-												</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment" />
+												</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="3" name="shipment" />
 													<div class="checkbox__inner"><svg class="checkbox__check">
 															<use xlink:href="img/svgSprite.svg#icon__check"></use>
 														</svg>
@@ -106,11 +106,11 @@
 									</div>
 									<div class="form__row">
 										<div class="form-field"><label class="form-field__label">Цена за тонну (₽)</label>
-											<div class="form-field__row form-field__row_fields"><input class="input input_currency" type="text" placeholder="от" pattern="^\$?(([1-9](\d*|\d{0,2}(,\d{3})*))|0)(\.\d{1,2})?$" /><input class="input input_currency" type="text" placeholder="до" pattern="^\$?(([1-9](\d*|\d{0,2}(,\d{3})*))|0)(\.\d{1,2})?$" /></div>
+											<div class="form-field__row form-field__row_fields"><input class="input input_currency" type="text" name="from" placeholder="от" /><input class="input input_currency" type="text" name="to" placeholder="до" /></div>
 										</div>
 									</div>
 									<div class="form__row"><label class="form-field">
-											<div class="form-field__label">Область</div><select class="select">
+											<div class="form-field__label">Область</div><select class="select" name="region">
 												<option value="all">Все области</option>
 												<option value="1">Область 1</option>
 												<option value="2">Область 2</option>
@@ -118,55 +118,49 @@
 											</select>
 										</label></div>
 									<div class="form__row"><label class="form-field">
-											<div class="form-field__label">Базис</div><select class="select">
+											<div class="form-field__label">Базис</div><select class="select" name="basis">
 												<option value="all">Выберите базис</option>
 												<option value="1">Базис 1</option>
 												<option value="2">Базис 2</option>
 												<option value="3">Базис 3</option>
 											</select>
 										</label></div>
-									<div class="form__footer"><button class="button button_tertiary form__button">Сбросить</button><button class="button form__button">Применить</button></div>
+									<div class="form__footer"><button class="button button_tertiary form__button js-reset-form" type="button">Сбросить</button><button class="button form__button">Применить</button></div>
 								</form>
 							</div>
 						</div>
 						<div class="layout__main">
-							<div class="map-card map-card_open">
-								<div class="map-card__close"><svg class="map-card__icon">
+							<div class="layout__map-actions">
+								<div class="layout__map-actions">
+									<div class="layout__map-action js-zoom-in"><svg class="layout__icon">
+											<use xlink:href="img/svgSprite.svg#icon__plus"></use>
+										</svg></div>
+									<div class="layout__map-action js-zoom-out"><svg class="layout__icon">
+											<use xlink:href="img/svgSprite.svg#icon__minus"></use>
+										</svg></div>
+								</div>
+							</div>
+							<div class="js-map" data-api-key="AIzaSyB8H0omjdusXDyYuRGOLlLOSOy7P79yuMQ" data-icon="img/icon__drop.svg" data-active-icon="img/icon__drop_active.svg" data-url="assets/map.json" data-initial-lat="55.7522" data-initial-lng="37.6156" data-initial-zoom="4" data-max-zoom="16" data-min-zoom="2" data-item-zoom="4" data-scrollwheel="Y" data-breakpoint="1280"></div>
+							<div class="map-card map-card_mobile js-mobile-info-window">
+								<div class="map-card__close js-close"><svg class="map-card__icon">
 										<use xlink:href="img/svgSprite.svg#icon__cross"></use>
 									</svg></div>
-								<div class="map-card__title">ООО «Татнефтьавиасервис»</div>
-								<div class="map-card__descr">420017, РТ, Лаишевский район, Международный аэропорт «Казань»</div>
+								<div class="map-card__title js-title"></div>
+								<div class="map-card__descr js-address"></div>
 								<div class="shipping map-card__shipping">
 									<div class="shipping__title">Способы отгрузки:</div>
 									<div class="shipping__inner">
-										<div class="shipping__item shipping__item_active" data-tippy-content="Описание отгрузки"><svg class="shipping__icon">
+										<div class="shipping__item js-pipe" data-tippy-content="Описание отгрузки"><svg class="shipping__icon">
 												<use xlink:href="img/svgSprite.svg#icon__solid_pipe"></use>
 											</svg></div>
-										<div class="shipping__item" data-tippy-content="Описание отгрузки"><svg class="shipping__icon">
+										<div class="shipping__item js-truck" data-tippy-content="Описание отгрузки"><svg class="shipping__icon">
 												<use xlink:href="img/svgSprite.svg#icon__solid_truck"></use>
 											</svg></div>
-										<div class="shipping__item shipping__item_active" data-tippy-content="Описание отгрузки"><svg class="shipping__icon">
+										<div class="shipping__item js-tank" data-tippy-content="Описание отгрузки"><svg class="shipping__icon">
 												<use xlink:href="img/svgSprite.svg#icon__solid_tank"></use>
 											</svg></div>
 									</div>
-								</div>
-								<div class="map-card__scroll">
-									<div class="map-card__list">
-										<div class="map-card__li"><a class="map-card__link" href="#"><svg class="map-card__li-icon">
-													<use xlink:href="img/svgSprite.svg#icon__shevron_right"></use>
-												</svg>
-												<div class="map-card__li-title">Бензин АИ-100</div>
-												<div class="map-card__li-descr">от 57 500 ₽</div>
-											</a></div>
-										<div class="map-card__li"><a class="map-card__link" href="#"><svg class="map-card__li-icon">
-													<use xlink:href="img/svgSprite.svg#icon__shevron_right"></use>
-												</svg>
-												<div class="map-card__li-title">Бензин АИ-101</div>
-												<div class="map-card__li-descr">от 57 500 ₽</div>
-											</a></div>
-									</div>
-								</div>
-								<div class="map-card__info">Всего <span>10 видов</span> нефтепродуктов</div><a class="button button_secondary map-card__button" href="#">Все продукты базиса</a>
+								</div><a class="button button_secondary map-card__button js-link" href="#">Все продукты базиса</a>
 							</div>
 						</div>
 					</div>
@@ -176,26 +170,26 @@
 						<div class="hystmodal__window popup popup_filter" role="dialog" aria-modal="true"><button class="hystmodal__close popup__close" data-hystclose="data-hystclose"><svg class="popup__icon">
 									<use xlink:href="img/svgSprite.svg#icon__cross"></use>
 								</svg></button>
-							<form class="form">
+							<form class="form js-map-filter">
 								<div class="form__row">
-									<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select">
+									<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select" name="type">
 											<option value="all">Выберите виды</option>
-											<option value="petroluem">Бензин</option>
-											<option value="diesel">Дизельное топливо</option>
-											<option value="kerosene">Керосин</option>
-											<option value="gas">Сжиженный углеводородный газ</option>
+											<option value="1">Бензин</option>
+											<option value="2">Дизельное топливо</option>
+											<option value="3">Керосин</option>
+											<option value="4">Сжиженный углеводородный газ</option>
 										</select></div>
 								</div>
 								<div class="form__row">
 									<div class="form-field">
 										<div class="form-field__label">Способ отгрузки</div>
-										<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="1" name="shipment" />
+										<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment" />
 												<div class="checkbox__inner"><svg class="checkbox__check">
 														<use xlink:href="img/svgSprite.svg#icon__check"></use>
 													</svg>
 													<div class="checkbox__label">Автомобить</div>
 												</div>
-											</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment" />
+											</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="3" name="shipment" />
 												<div class="checkbox__inner"><svg class="checkbox__check">
 														<use xlink:href="img/svgSprite.svg#icon__check"></use>
 													</svg>
@@ -206,11 +200,11 @@
 								</div>
 								<div class="form__row">
 									<div class="form-field"><label class="form-field__label">Цена за тонну (₽)</label>
-										<div class="form-field__row form-field__row_fields"><input class="input" type="text" placeholder="до" /><input class="input" type="text" placeholder="после" /></div>
+										<div class="form-field__row form-field__row_fields"><input class="input input_currency" type="text" name="from" placeholder="от" /><input class="input input_currency" type="text" name="to" placeholder="до" /></div>
 									</div>
 								</div>
 								<div class="form__row"><label class="form-field">
-										<div class="form-field__label">Область</div><select class="select">
+										<div class="form-field__label">Область</div><select class="select" name="region">
 											<option value="all">Все области</option>
 											<option value="1">Область 1</option>
 											<option value="2">Область 2</option>
@@ -218,14 +212,14 @@
 										</select>
 									</label></div>
 								<div class="form__row"><label class="form-field">
-										<div class="form-field__label">Базис</div><select class="select">
+										<div class="form-field__label">Базис</div><select class="select" name="basis">
 											<option value="all">Выберите базис</option>
 											<option value="1">Базис 1</option>
 											<option value="2">Базис 2</option>
 											<option value="3">Базис 3</option>
 										</select>
 									</label></div>
-								<div class="form__footer"><button class="button button_tertiary form__button">Сбросить</button><button class="button form__button">Применить</button></div>
+								<div class="form__footer"><button class="button button_tertiary form__button js-reset-form" type="button">Сбросить</button><button class="button form__button">Применить</button></div>
 							</form>
 						</div>
 					</div>
@@ -262,6 +256,6 @@
 					<div class="popup__text">Мы свяжемся с вами в ближайшнн время</div>
 				</div>
 			</div>
-		</div><script src="js/hystmodal.min.js"></script><script src="js/main.js"></script>
+		</div><script src="js/hystmodal.min.js"></script><script src="js/main.js"></script><script src="https://unpkg.com/@googlemaps/markerclusterer/dist/index.min.js"></script>
 	</body>
 </html>
