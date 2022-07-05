@@ -11,7 +11,7 @@ block pageMain
 					| Фильтр
 				.layout__scroll(data-aos='fade-up', data-aos-duration='750', data-aos-delay='250')
 					+form_filter('js-map-filter')
-			.layout__main
+			.layout__main(data-aos='fade-left', data-aos-duration='750', data-aos-delay='500')
 				.layout__map-actions
 					.layout__map-actions
 						.layout__map-action.js-zoom-in
@@ -39,5 +39,16 @@ block pageMain
 							.shipping__item.js-tank(data-tippy-content='Описание отгрузки')
 								svg.shipping__icon
 									use(xlink:href='img/svgSprite.svg#icon__solid_tank')
+					.map-card__scroll
+						.map-card__list.js-price-list
+					.map-card__info.js-info
 					a.button.button_secondary.map-card__button.js-link(href='#') Все продукты базиса
+
+				template(id="priceItemTemplate")
+					.map-card__li
+						a.map-card__link.js-price-link
+							svg.map-card__li-icon
+								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+							.map-card__li-title.js-price-title
+							.map-card__li-descr.js-price-description
 	+popup_filter

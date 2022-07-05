@@ -129,7 +129,7 @@
 								</form>
 							</div>
 						</div>
-						<div class="layout__main">
+						<div class="layout__main" data-aos="fade-left" data-aos-duration="750" data-aos-delay="500">
 							<div class="layout__map-actions">
 								<div class="layout__map-actions">
 									<div class="layout__map-action js-zoom-in"><svg class="layout__icon">
@@ -160,8 +160,19 @@
 												<use xlink:href="img/svgSprite.svg#icon__solid_tank"></use>
 											</svg></div>
 									</div>
-								</div><a class="button button_secondary map-card__button js-link" href="#">Все продукты базиса</a>
-							</div>
+								</div>
+								<div class="map-card__scroll">
+									<div class="map-card__list js-price-list"></div>
+								</div>
+								<div class="map-card__info js-info"></div><a class="button button_secondary map-card__button js-link" href="#">Все продукты базиса</a>
+							</div><template id="priceItemTemplate">
+								<div class="map-card__li"><a class="map-card__link js-price-link"><svg class="map-card__li-icon">
+											<use xlink:href="img/svgSprite.svg#icon__shevron_right"></use>
+										</svg>
+										<div class="map-card__li-title js-price-title"></div>
+										<div class="map-card__li-descr js-price-description"></div>
+									</a></div>
+							</template>
 						</div>
 					</div>
 				</section>

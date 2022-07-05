@@ -116,13 +116,19 @@ function initBasisMap() {
 
 		// Дичь с мобильной версией этой карты
 		const breakpoint = mapElement.dataset.breakpoint;
-		const isMobile = window.matchMedia(`(max-width: ${breakpoint}px)`).matches;
+		let isMobile = window.matchMedia(`(max-width: ${breakpoint}px)`).matches;
+
+		window.addEventListener('resize', () => {
+			isMobile = window.matchMedia(`(max-width: ${breakpoint}px)`).matches;
+		})
 
 		const mobileInfoModal = document.querySelector('.js-mobile-info-window');
 		const close = mobileInfoModal.querySelector('.js-close');
 		const title = mobileInfoModal.querySelector('.js-title');
 		const address = mobileInfoModal.querySelector('.js-address');
 		const icons = mobileInfoModal.querySelectorAll('.shipping__item');
+		const pricesContainer = mobileInfoModal.querySelector('.js-price-list');
+		const info = mobileInfoModal.querySelector('.js-info');
 		const link = mobileInfoModal.querySelector('.js-link');
 
 		loadApi("gmaps", `https://maps.googleapis.com/maps/api/js?key=${key}`, onMapInit);
@@ -166,6 +172,16 @@ function initBasisMap() {
 						return marker;
 					});
 
+					window.addEventListener('resize', () => {
+						mobileInfoModal.classList.remove('map-card_open');
+						if (window.openedInfoWindow) {
+							window.openedInfoWindow.close();
+						}
+						markers.forEach(m => {
+							m.setIcon(iconPath);
+						});
+					});
+
 					function closeMobileInfoWindow() {
 						mobileInfoModal.classList.remove('map-card_open');
 						markers.forEach(m => {
@@ -200,23 +216,21 @@ function initBasisMap() {
 							marker.setIcon(activeIconPath);
 						});
 
-						if (!isMobile) {
-							google.maps.event.addListener(marker.iw,'closeclick',function(){
+						google.maps.event.addListener(marker.iw,'closeclick',function(){
+							marker.setIcon(iconPath);
+							resetMobileInfoModal();
+						});
+
+						google.maps.event.addListener(marker.iw, 'domready', function() {
+							const cardInfo = document.querySelector(`#infoWindow-${marker.jsKey}`);
+							const closeButton = cardInfo.querySelector('.map-card__close');
+							closeButton.addEventListener('click', () => {
 								marker.setIcon(iconPath);
-								resetMobileInfoModal();
+								marker.iw.close();
 							});
-	
-							google.maps.event.addListener(marker.iw, 'domready', function() {
-								const cardInfo = document.querySelector(`#infoWindow-${marker.jsKey}`);
-								const closeButton = cardInfo.querySelector('.map-card__close');
-								closeButton.addEventListener('click', () => {
-									marker.setIcon(iconPath);
-									marker.iw.close();
-								});
-								// tippy.js
-								tippy('[data-tippy-content]');
-							});
-						}
+							// tippy.js
+							tippy('[data-tippy-content]');
+						});
 					});
 
 					mapFilters.forEach(form => {
@@ -297,6 +311,16 @@ function initBasisMap() {
 					icon.classList.add('shipping__item_active');
 				}
 			});
+			pricesContainer.innerHTML = "";
+			item.prices.items.forEach(price => {
+				const priceElement = document.querySelector('#priceItemTemplate').content.children[0].cloneNode(true);
+				priceElement.querySelector('.js-price-link').href = price.link;
+				priceElement.querySelector('.js-price-title').textContent = price.name;
+				priceElement.querySelector('.js-price-description').textContent = price.price;
+
+				pricesContainer.append(priceElement);
+			});
+			info.innerHTML = item.info;
 			link.href = item.link;
 		}
 
@@ -306,6 +330,8 @@ function initBasisMap() {
 			icons.forEach(icon => {
 				icon.classList.remove('shipping__item_active');
 			});
+			pricesContainer.innerHTML = "";
+			info.innerHTML = "";
 			link.href = "#";
 		}
 
@@ -335,8 +361,7 @@ function initBasisMap() {
 				item
 			});
 
-			if (!isMobile) {
-				const infoWindow = getInfoWindow(item, key);
+			const infoWindow = getInfoWindow(item, key);
 
 				instance.addListener("click", () => {
 					map.panTo(position);
@@ -346,18 +371,19 @@ function initBasisMap() {
 						window.openedInfoWindow.close();
 					}
 	
-					infoWindow.open({
-						anchor: instance,
-						map,
-						shouldFocus: true,
-					});
-	
-					window.openedInfoWindow = infoWindow;
+					if (!isMobile) {
+						infoWindow.open({
+							anchor: instance,
+							map,
+							shouldFocus: true,
+						});
+		
+						window.openedInfoWindow = infoWindow;
+					}
 				});
 	
 				instance.iw = infoWindow;
 				instance.jsKey = key;
-			}
 
 			return instance;
 		}
