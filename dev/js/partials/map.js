@@ -27,7 +27,7 @@ function initContactsMap() {
 		 * Основной код тут
 		 */
 		function onMapInit() {
-			const center = { lat: Number(initialLat), lng: Number(initialLng) };
+			const center = {lat: Number(initialLat), lng: Number(initialLng)};
 			const map = new google.maps.Map(mapElement, {
 				zoom: Number(initialZoom),
 				center,
@@ -52,7 +52,7 @@ function initContactsMap() {
 
 					// Кластеризация
 					// Если не надо, то можно закомментить
-					new markerClusterer.MarkerClusterer({ markers, map });
+					new markerClusterer.MarkerClusterer({markers, map});
 				})
 				.catch(err => {
 					console.warn(err);
@@ -114,6 +114,11 @@ function initBasisMap() {
 		const itemZoom = mapElement.dataset.itemZoom;
 		const scrollwheel = Boolean(mapElement.dataset.scrollwheel);
 
+		// Подсказки
+		const pipeTip = mapElement.dataset.pipeTip;
+		const truckTip = mapElement.dataset.truckTip;
+		const tankTip = mapElement.dataset.tankTip;
+
 		// Дичь с мобильной версией этой карты
 		const breakpoint = mapElement.dataset.breakpoint;
 		let isMobile = window.matchMedia(`(max-width: ${breakpoint}px)`).matches;
@@ -137,7 +142,7 @@ function initBasisMap() {
 		 * Основной код тут
 		 */
 		function onMapInit() {
-			const center = { lat: Number(initialLat), lng: Number(initialLng) };
+			const center = {lat: Number(initialLat), lng: Number(initialLng)};
 			const map = new google.maps.Map(mapElement, {
 				zoom: Number(initialZoom),
 				center,
@@ -191,7 +196,7 @@ function initBasisMap() {
 
 					close.addEventListener('click', closeMobileInfoWindow);
 
-					document.addEventListener('keydown', (event) => {   
+					document.addEventListener('keydown', (event) => {
 						if (event.key === 'Escape') {
 							closeMobileInfoWindow();
 						}
@@ -199,7 +204,7 @@ function initBasisMap() {
 
 					// Кластеризация
 					// Если не надо, то можно закомментить
-					new markerClusterer.MarkerClusterer({ markers, map });
+					new markerClusterer.MarkerClusterer({markers, map});
 
 					// Иконка активного элемента
 					markers.forEach(marker => {
@@ -216,12 +221,12 @@ function initBasisMap() {
 							marker.setIcon(activeIconPath);
 						});
 
-						google.maps.event.addListener(marker.iw,'closeclick',function(){
+						google.maps.event.addListener(marker.iw, 'closeclick', function () {
 							marker.setIcon(iconPath);
 							resetMobileInfoModal();
 						});
 
-						google.maps.event.addListener(marker.iw, 'domready', function() {
+						google.maps.event.addListener(marker.iw, 'domready', function () {
 							const cardInfo = document.querySelector(`#infoWindow-${marker.jsKey}`);
 							const closeButton = cardInfo.querySelector('.map-card__close');
 							closeButton.addEventListener('click', () => {
@@ -297,7 +302,7 @@ function initBasisMap() {
 
 		/**
 		 * Задаёт контент для InfoWindow на мобилке (он сделан через обычный html)
-		 * @param {*} item 
+		 * @param {*} item
 		 */
 		function setMobileInfoModal(item) {
 			title.textContent = item.name;
@@ -363,27 +368,27 @@ function initBasisMap() {
 
 			const infoWindow = getInfoWindow(item, key);
 
-				instance.addListener("click", () => {
-					map.panTo(position);
-					map.setZoom(Number(itemZoom));
-	
-					if (window.openedInfoWindow) {
-						window.openedInfoWindow.close();
-					}
-	
-					if (!isMobile) {
-						infoWindow.open({
-							anchor: instance,
-							map,
-							shouldFocus: true,
-						});
-		
-						window.openedInfoWindow = infoWindow;
-					}
-				});
-	
-				instance.iw = infoWindow;
-				instance.jsKey = key;
+			instance.addListener("click", () => {
+				map.panTo(position);
+				map.setZoom(Number(itemZoom));
+
+				if (window.openedInfoWindow) {
+					window.openedInfoWindow.close();
+				}
+
+				if (!isMobile) {
+					infoWindow.open({
+						anchor: instance,
+						map,
+						shouldFocus: true,
+					});
+
+					window.openedInfoWindow = infoWindow;
+				}
+			});
+
+			instance.iw = infoWindow;
+			instance.jsKey = key;
 
 			return instance;
 		}
@@ -394,11 +399,11 @@ function initBasisMap() {
 		 * @returns gmaps InfoWindow
 		 */
 		function getInfoWindow(item, key) {
-			let contentString =`
+			let contentString = `
 			<div class="map-card" id="infoWindow-${key}">
 				<div class="map-card__close">
 					<svg class="map-card__icon">
-						<use xlink:href="img/svgSprite.svg#icon__cross"></use>
+						<use xlink:href="/local/styles/img/svgSprite.svg#icon__cross"></use>
 					</svg>
 				</div>
 				<div class="map-card__title">${item.name}</div>
@@ -411,19 +416,19 @@ function initBasisMap() {
 					`<div class="shipping map-card__shipping">
 						<div class="shipping__title">Способы отгрузки:</div>
 						<div class="shipping__inner">
-							<div class="shipping__item ${shipmentCodes.includes("js-pipe") ? "shipping__item_active" : ""}" data-tippy-content="Описание отгрузки">
+							<div class="shipping__item ${shipmentCodes.includes("js-pipe") ? "shipping__item_active" : ""}" data-tippy-content="${pipeTip}">
 								<svg class="shipping__icon">
-									<use xlink:href="img/svgSprite.svg#icon__solid_pipe"></use>
+									<use xlink:href="/local/styles/img/svgSprite.svg#icon__solid_pipe"></use>
 								</svg>
 							</div>
-							<div class="shipping__item ${shipmentCodes.includes("js-truck") ? "shipping__item_active" : ""}" data-tippy-content="Описание отгрузки">
+							<div class="shipping__item ${shipmentCodes.includes("js-truck") ? "shipping__item_active" : ""}" data-tippy-content="${truckTip}">
 								<svg class="shipping__icon">
-									<use xlink:href="img/svgSprite.svg#icon__solid_truck"></use>
+									<use xlink:href="/local/styles/img/svgSprite.svg#icon__solid_truck"></use>
 								</svg>
 							</div>
-							<div class="shipping__item ${shipmentCodes.includes("js-tank") ? "shipping__item_active" : ""}" data-tippy-content="Описание отгрузки">
+							<div class="shipping__item ${shipmentCodes.includes("js-tank") ? "shipping__item_active" : ""}" data-tippy-content="${tankTip}">
 								<svg class="shipping__icon">
-									<use xlink:href="img/svgSprite.svg#icon__solid_tank"></use>
+									<use xlink:href="/local/styles/img/svgSprite.svg#icon__solid_tank"></use>
 								</svg>
 							</div>
 						</div>
@@ -437,10 +442,10 @@ function initBasisMap() {
 
 				item.prices.items.forEach(price => {
 					contentString +=
-							`<div class="map-card__li">
+						`<div class="map-card__li">
 								<a class="map-card__link" href="${price.link}">
 									<svg class="map-card__li-icon">
-										<use xlink:href="img/svgSprite.svg#icon__shevron_right"></use>
+										<use xlink:href="/local/styles/img/svgSprite.svg#icon__shevron_right"></use>
 									</svg>
 									<div class="map-card__li-title">${price.name}</div>
 									<div class="map-card__li-descr">${price.price}</div>
@@ -448,7 +453,7 @@ function initBasisMap() {
 							</div>`;
 				});
 				contentString +=
-						`</div>
+					`</div>
 					</div>`;
 			}
 
@@ -513,182 +518,182 @@ const styles = [
 	{
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#f5f5f5"
-		}
+			{
+				"color": "#f5f5f5"
+			}
 		]
 	},
 	{
 		"elementType": "labels.icon",
 		"stylers": [
-		{
-			"visibility": "off"
-		}
+			{
+				"visibility": "off"
+			}
 		]
 	},
 	{
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#616161"
-		}
+			{
+				"color": "#616161"
+			}
 		]
 	},
 	{
 		"elementType": "labels.text.stroke",
 		"stylers": [
-		{
-			"color": "#f5f5f5"
-		}
+			{
+				"color": "#f5f5f5"
+			}
 		]
 	},
 	{
 		"featureType": "administrative.land_parcel",
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#bdbdbd"
-		}
+			{
+				"color": "#bdbdbd"
+			}
 		]
 	},
 	{
 		"featureType": "poi",
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#eeeeee"
-		}
+			{
+				"color": "#eeeeee"
+			}
 		]
 	},
 	{
 		"featureType": "poi",
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#757575"
-		}
+			{
+				"color": "#757575"
+			}
 		]
 	},
 	{
 		"featureType": "poi.park",
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#e5e5e5"
-		}
+			{
+				"color": "#e5e5e5"
+			}
 		]
 	},
 	{
 		"featureType": "poi.park",
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#9e9e9e"
-		}
+			{
+				"color": "#9e9e9e"
+			}
 		]
 	},
 	{
 		"featureType": "road",
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#ffffff"
-		}
+			{
+				"color": "#ffffff"
+			}
 		]
 	},
 	{
 		"featureType": "road.arterial",
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#757575"
-		}
+			{
+				"color": "#757575"
+			}
 		]
 	},
 	{
 		"featureType": "road.highway",
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#dadada"
-		}
+			{
+				"color": "#dadada"
+			}
 		]
 	},
 	{
 		"featureType": "road.highway",
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#616161"
-		}
+			{
+				"color": "#616161"
+			}
 		]
 	},
 	{
 		"featureType": "road.local",
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#9e9e9e"
-		}
+			{
+				"color": "#9e9e9e"
+			}
 		]
 	},
 	{
 		"featureType": "transit.line",
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#e5e5e5"
-		}
+			{
+				"color": "#e5e5e5"
+			}
 		]
 	},
 	{
 		"featureType": "transit.station",
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#eeeeee"
-		}
+			{
+				"color": "#eeeeee"
+			}
 		]
 	},
 	{
 		"featureType": "water",
 		"elementType": "geometry",
 		"stylers": [
-		{
-			"color": "#ccf2e6"
-		}
+			{
+				"color": "#ccf2e6"
+			}
 		]
 	},
 	{
 		"featureType": "water",
 		"elementType": "labels.text.fill",
 		"stylers": [
-		{
-			"color": "#99E6CC"
-		}
+			{
+				"color": "#99E6CC"
+			}
 		]
 	}
-	];
+];
 
 
 /**
-		 * Позволяет подключать скрипты на определенных страницах
-		 * @param {*} name
-		 * @param {*} url
-		 * @param {*} callback
-		 */
- function loadApi(name, url, callback) {
+ * Позволяет подключать скрипты на определенных страницах
+ * @param {*} name
+ * @param {*} url
+ * @param {*} callback
+ */
+function loadApi(name, url, callback) {
 	const apiLoaded = name + 'Loaded';
 	if (!window[apiLoaded]) {
-			const script = document.createElement('script');
+		const script = document.createElement('script');
 
-			window[apiLoaded] = true;
+		window[apiLoaded] = true;
 
-			script.src = url;
-			if (callback)
-					script.onload = callback;
+		script.src = url;
+		if (callback)
+			script.onload = callback;
 
-			const firstScriptTag = document.getElementsByTagName('script')[0];
-			firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
+		const firstScriptTag = document.getElementsByTagName('script')[0];
+		firstScriptTag.parentNode.insertBefore(script, firstScriptTag);
 	}
 }

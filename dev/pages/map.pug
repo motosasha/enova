@@ -20,7 +20,7 @@ block pageMain
 						.layout__map-action.js-zoom-out
 							svg.layout__icon
 								use(xlink:href='img/svgSprite.svg#icon__minus')
-				.js-map(data-api-key="AIzaSyB8H0omjdusXDyYuRGOLlLOSOy7P79yuMQ", data-icon="img/icon__drop.svg", data-active-icon="img/icon__drop_active.svg" data-url="assets/map.json", data-initial-lat="55.7522", data-initial-lng="37.6156", data-initial-zoom="4", data-max-zoom="16", data-min-zoom="2", data-item-zoom="4" data-scrollwheel="Y", data-breakpoint="1280")
+				.js-map(data-api-key="AIzaSyB8H0omjdusXDyYuRGOLlLOSOy7P79yuMQ", data-icon="img/icon__drop.svg", data-active-icon="img/icon__drop_active.svg" data-url="assets/map.json", data-initial-lat="55.7522", data-initial-lng="37.6156", data-initial-zoom="4", data-max-zoom="16", data-min-zoom="2", data-item-zoom="4" data-scrollwheel="Y", data-breakpoint="1280", data-pipe-tip="Трубопровод", data-truck-tip="Автомобиль", data-tank-tip="Железная дорога")
 				.map-card.map-card_mobile.js-mobile-info-window
 					.map-card__close.js-close
 						svg.map-card__icon
@@ -30,13 +30,13 @@ block pageMain
 					.shipping.map-card__shipping
 						.shipping__title Способы отгрузки:
 						.shipping__inner
-							.shipping__item.js-pipe(data-tippy-content='Описание отгрузки')
+							.shipping__item.js-pipe(data-tippy-content='Железная дорога')
 								svg.shipping__icon
 									use(xlink:href='img/svgSprite.svg#icon__solid_pipe')
-							.shipping__item.js-truck(data-tippy-content='Описание отгрузки')
+							.shipping__item.js-truck(data-tippy-content='Автомобиль')
 								svg.shipping__icon
 									use(xlink:href='img/svgSprite.svg#icon__solid_truck')
-							.shipping__item.js-tank(data-tippy-content='Описание отгрузки')
+							.shipping__item.js-tank(data-tippy-content='Железная дорога')
 								svg.shipping__icon
 									use(xlink:href='img/svgSprite.svg#icon__solid_tank')
 					.map-card__scroll
