@@ -267,10 +267,10 @@ function initBasisMap() {
 								if (
 									checkDefaultFilter(filterData.basis, [marker.item.basis])
 									&& checkDefaultFilter(filterData.region, [marker.item.region])
-									&& checkDefaultFilter(filterData.type, marker.item.types)
-									&& checkDefaultFilter(filterData.shipment, marker.item.shipment.map(i => i.id))
-									&& checkMinPriceFilter(filterData.from[0], marker.item.prices.min)
-									&& checkMaxPriceFilter(filterData.to[0], marker.item.prices.min)
+									&& checkDefaultFilter(filterData.type_of_fuel, marker.item.types)
+									&& checkDefaultFilter(filterData["shipment_method[]"], marker.item.shipment.map(i => i.id))
+									&& checkMinPriceFilter(filterData.price_from[0], marker.item.prices.min)
+									&& checkMaxPriceFilter(filterData.price_to[0], marker.item.prices.min)
 								) {
 									marker.setVisible(true);
 								} else {

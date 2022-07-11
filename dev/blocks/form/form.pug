@@ -11,25 +11,25 @@ mixin form_filter(mod)
 					{'label': 'Дизельное топливо', 'value': '2'},
 					{'label': 'Керосин', 'value': '3'},
 					{'label': 'Сжиженный углеводородный газ', 'value': '4'}
-				], 'type')
+				], 'type_of_fuel')
 		.form__row
 			.form-field
 				.form-field__label Способ отгрузки
 				.form-field__row.form-field__row_checks
 					label.checkbox
-						input.checkbox__input(type='checkbox', value=1, name='shipment')
+						input.checkbox__input(type='checkbox', value=1, name='shipment_method[]')
 						.checkbox__inner
 							svg.checkbox__check
 								use(xlink:href='img/svgSprite.svg#icon__check')
 							.checkbox__label Трубопровод
 					label.checkbox
-						input.checkbox__input(type='checkbox', value=2, name='shipment')
+						input.checkbox__input(type='checkbox', value=2, name='shipment_method[]')
 						.checkbox__inner
 							svg.checkbox__check
 								use(xlink:href='img/svgSprite.svg#icon__check')
 							.checkbox__label Автомобить
 					label.checkbox
-						input.checkbox__input(type='checkbox', value=3, name='shipment')
+						input.checkbox__input(type='checkbox', value=3, name='shipment_method[]')
 						.checkbox__inner
 							svg.checkbox__check
 								use(xlink:href='img/svgSprite.svg#icon__check')
@@ -38,8 +38,8 @@ mixin form_filter(mod)
 			.form-field
 				label.form-field__label Цена за тонну (₽)
 				.form-field__row.form-field__row_fields
-					input.input.input_currency(type='text', name="from", placeholder='от')
-					input.input.input_currency(type='text', name="to", placeholder='до')
+					input.input.input_currency(type='text', name="price_from", placeholder='от')
+					input.input.input_currency(type='text', name="price_to", placeholder='до')
 		.form__row
 			label.form-field
 				.form-field__label Область

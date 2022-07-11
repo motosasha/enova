@@ -78,7 +78,7 @@
 							<div class="layout__scroll" data-aos="fade-up" data-aos-duration="750" data-aos-delay="250">
 								<form class="form">
 									<div class="form__row">
-										<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select" name="type">
+										<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select" name="type_of_fuel">
 												<option value="all">Выберите виды</option>
 												<option value="1">Бензин</option>
 												<option value="2">Дизельное топливо</option>
@@ -89,19 +89,19 @@
 									<div class="form__row">
 										<div class="form-field">
 											<div class="form-field__label">Способ отгрузки</div>
-											<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="1" name="shipment" />
+											<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="1" name="shipment_method[]" />
 													<div class="checkbox__inner"><svg class="checkbox__check">
 															<use xlink:href="img/svgSprite.svg#icon__check"></use>
 														</svg>
 														<div class="checkbox__label">Трубопровод</div>
 													</div>
-												</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment" />
+												</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment_method[]" />
 													<div class="checkbox__inner"><svg class="checkbox__check">
 															<use xlink:href="img/svgSprite.svg#icon__check"></use>
 														</svg>
 														<div class="checkbox__label">Автомобить</div>
 													</div>
-												</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="3" name="shipment" />
+												</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="3" name="shipment_method[]" />
 													<div class="checkbox__inner"><svg class="checkbox__check">
 															<use xlink:href="img/svgSprite.svg#icon__check"></use>
 														</svg>
@@ -112,7 +112,7 @@
 									</div>
 									<div class="form__row">
 										<div class="form-field"><label class="form-field__label">Цена за тонну (₽)</label>
-											<div class="form-field__row form-field__row_fields"><input class="input input_currency" type="text" name="from" placeholder="от" /><input class="input input_currency" type="text" name="to" placeholder="до" /></div>
+											<div class="form-field__row form-field__row_fields"><input class="input input_currency" type="text" name="price_from" placeholder="от" /><input class="input input_currency" type="text" name="price_to" placeholder="до" /></div>
 										</div>
 									</div>
 									<div class="form__row"><label class="form-field">
@@ -405,7 +405,7 @@
 								</svg></button>
 							<form class="form">
 								<div class="form__row">
-									<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select" name="type">
+									<div class="form-field"><label class="form-field__label">Вид топлива</label><select class="select" name="type_of_fuel">
 											<option value="all">Выберите виды</option>
 											<option value="1">Бензин</option>
 											<option value="2">Дизельное топливо</option>
@@ -416,19 +416,19 @@
 								<div class="form__row">
 									<div class="form-field">
 										<div class="form-field__label">Способ отгрузки</div>
-										<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="1" name="shipment" />
+										<div class="form-field__row form-field__row_checks"><label class="checkbox"><input class="checkbox__input" type="checkbox" value="1" name="shipment_method[]" />
 												<div class="checkbox__inner"><svg class="checkbox__check">
 														<use xlink:href="img/svgSprite.svg#icon__check"></use>
 													</svg>
 													<div class="checkbox__label">Трубопровод</div>
 												</div>
-											</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment" />
+											</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="2" name="shipment_method[]" />
 												<div class="checkbox__inner"><svg class="checkbox__check">
 														<use xlink:href="img/svgSprite.svg#icon__check"></use>
 													</svg>
 													<div class="checkbox__label">Автомобить</div>
 												</div>
-											</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="3" name="shipment" />
+											</label><label class="checkbox"><input class="checkbox__input" type="checkbox" value="3" name="shipment_method[]" />
 												<div class="checkbox__inner"><svg class="checkbox__check">
 														<use xlink:href="img/svgSprite.svg#icon__check"></use>
 													</svg>
@@ -439,7 +439,7 @@
 								</div>
 								<div class="form__row">
 									<div class="form-field"><label class="form-field__label">Цена за тонну (₽)</label>
-										<div class="form-field__row form-field__row_fields"><input class="input input_currency" type="text" name="from" placeholder="от" /><input class="input input_currency" type="text" name="to" placeholder="до" /></div>
+										<div class="form-field__row form-field__row_fields"><input class="input input_currency" type="text" name="price_from" placeholder="от" /><input class="input input_currency" type="text" name="price_to" placeholder="до" /></div>
 									</div>
 								</div>
 								<div class="form__row"><label class="form-field">
