@@ -1,0 +1,12 @@
+extends ../pug/layout_default.pug
+
+block variables
+	- var isMainPage = false;
+
+block pageMain
+	section.er404
+		.grid
+			.er404__inner
+				.er404__title 404
+				.er404__descr Такой страницы не существует
+				.er404__descr Перейти на #[a(href='index.html') главную страницу]

@@ -17,6 +17,12 @@ mixin form_filter(mod)
 				.form-field__label Способ отгрузки
 				.form-field__row.form-field__row_checks
 					label.checkbox
+						input.checkbox__input(type='checkbox', value=1, name='shipment')
+						.checkbox__inner
+							svg.checkbox__check
+								use(xlink:href='img/svgSprite.svg#icon__check')
+							.checkbox__label Трубопровод
+					label.checkbox
 						input.checkbox__input(type='checkbox', value=2, name='shipment')
 						.checkbox__inner
 							svg.checkbox__check

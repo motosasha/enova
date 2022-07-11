@@ -1,0 +1,57 @@
+// В этом файле должны быть стили для БЭМ-блока er404, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.er404 {
+	background: url('../img/bg__pattern_emerald.png') no-repeat top -20rem center;
+	background-size: 80rem 80rem;
+	height: 100%;
+	@media screen and (min-width: $screen-ti) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -35rem center;
+		background-size: 100rem 100rem;
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -65rem center;
+		background-size: 200rem 200rem;
+	}
+	&__inner {
+		padding: 8rem 0;
+		@media screen and (min-width: $screen-d) {
+			padding: 12rem 0;
+		}
+	}
+	&__title {
+		color: var(--emerald_primary);
+		font-size: 12rem;
+		font-weight: 100;
+		letter-spacing: 0.01em;
+		line-height: 1;
+		margin-bottom: 2.5rem;
+		text-align: center;
+		@media screen and (min-width: $screen-t) {
+			font-size: 24rem;
+		}
+	}
+	&__descr {
+		color: var(--emerald_primary);
+		font-size: 1.5rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.2;
+		text-align: center;
+		@media screen and (min-width: $screen-t) {
+			font-size: 2.5rem;
+		}
+		a {
+			color: var(--mint_primary);
+			font-weight: 500;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
+	&__descr + &__descr {
+		margin-top: 1.5rem;
+	}
+}

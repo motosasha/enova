@@ -1,0 +1,72 @@
+.policy {
+	&__inner {
+		padding: 4rem 0 5rem;
+		@media screen and (min-width: $screen-d) {
+			display: grid;
+			grid-template-columns: 27rem auto;
+			padding: 8rem 0;
+		}
+	}
+	&__info {
+		margin-top: 3rem;
+		max-width: 85rem;
+		position: relative;
+		@media screen and (min-width: $screen-d) {
+			margin: 0;
+		}
+	}
+	&__button {
+		margin: 0;
+		@media screen and (min-width: $screen-tl) {
+			max-width: 25rem;
+			width: 100%;
+		}
+	}
+	&_backto {
+		background: var(--mint_quaternary);
+		@media screen and (min-width: $screen-tl) {
+			font-size: 1.5rem;
+			max-width: 20.5rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			align-self: start;
+			justify-self: start;
+			padding: .9rem 3rem .9rem .9rem;
+		}
+	}
+	&__title {
+		font-size: 2.5rem;
+		font-weight: 700;
+		line-height: 1.2;
+		margin: 0;
+	}
+	&__subtitle {
+		font-size: 2rem;
+		font-weight: 700;
+		line-height: 1.25;
+		margin: 3rem 0 1rem;
+	}
+	&__text {
+		font-size: 1.5rem;
+		font-weight: 400;
+		margin: 0;
+		line-height: 1.6667;
+		& + & {
+			margin-top: 1rem;
+		}
+	}
+	&__list {
+		list-style: disc;
+		margin: 1rem 0;
+		padding: 0 0 0 4rem;
+	}
+	&__li {
+		font-size: 1.6rem;
+		font-weight: 400;
+		margin: 0;
+		line-height: 1.5;
+		& + & {
+			margin-top: 1rem;
+		}
+	}
+}
