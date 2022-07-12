@@ -52,7 +52,7 @@ function initContactsMap() {
 
 					// Кластеризация
 					// Если не надо, то можно закомментить
-					new markerClusterer.MarkerClusterer({markers, map});
+					// new markerClusterer.MarkerClusterer({markers, map});
 				})
 				.catch(err => {
 					console.warn(err);
@@ -147,6 +147,7 @@ function initBasisMap() {
 				zoom: Number(initialZoom),
 				center,
 				disableDefaultUI: true,
+				disableDoubleClickZoom: true,
 				gestureHandling: 'greedy',
 				scrollwheel,
 				styles,
@@ -187,6 +188,17 @@ function initBasisMap() {
 						});
 					});
 
+					// Закрытие карточки при клике на карту
+					google.maps.event.addListener(map, "click", function() {
+						mobileInfoModal.classList.remove('map-card_open');
+						if (window.openedInfoWindow) {
+							window.openedInfoWindow.close();
+						}
+						markers.forEach(m => {
+							m.setIcon(iconPath);
+						});
+					});
+
 					function closeMobileInfoWindow() {
 						mobileInfoModal.classList.remove('map-card_open');
 						markers.forEach(m => {
@@ -204,7 +216,7 @@ function initBasisMap() {
 
 					// Кластеризация
 					// Если не надо, то можно закомментить
-					new markerClusterer.MarkerClusterer({markers, map});
+					// new markerClusterer.MarkerClusterer({markers, map});
 
 					// Иконка активного элемента
 					markers.forEach(marker => {
@@ -370,7 +382,7 @@ function initBasisMap() {
 
 			instance.addListener("click", () => {
 				map.panTo(position);
-				map.setZoom(Number(itemZoom));
+				// map.setZoom(Number(itemZoom)); // Если надо будет зумить при клике на метку
 
 				if (window.openedInfoWindow) {
 					window.openedInfoWindow.close();
