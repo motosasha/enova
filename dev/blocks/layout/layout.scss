@@ -6,73 +6,90 @@
 	&_catalog {
 		background: url('../img/bg__pattern_emerald.png') no-repeat top -29rem center;
 		background-size: 98rem 98rem;
+
 		@media screen and (min-width: $screen-tl) {
 			background: url('../img/bg__pattern_emerald.png') no-repeat top -100rem right -50rem;
 		}
+
 		@media screen and (min-width: $screen-d) {
 			background: url('../img/bg__pattern_emerald.png') no-repeat top -145rem right -46rem;
 			background-size: 256rem 256rem;
 		}
 	}
+
 	&_map {
 		height: 100%;
 	}
+
 	&_contacts {
 		background: var(--mint_primary);
 	}
+
 	.grid {
 		display: flex;
 		flex-direction: column;
 		height: 100%;
+
 		@media screen and (min-width: $screen-d) {
 			display: grid;
 			grid-template-columns: 36.5rem auto;
 			gap: 4rem;
 		}
 	}
+
 	&.layout_map .grid {
 		@media screen and (min-width: $screen-d) {
 			gap: 0;
 			height: calc(100vh - 12rem);
 		}
+
 		@media screen and (min-width: $screen-dxl) {
 			height: calc(100vh - 10.5rem);
 		}
 	}
+
 	&.layout_contacts .grid {
 		flex-direction: column-reverse;
+
 		@media screen and (min-width: $screen-tl) {
 			display: grid;
 			gap: 0;
 			grid-template-columns: 1fr 1fr;
 		}
+
 		@media screen and (min-width: $screen-d) {
 			grid-template-columns: 45rem auto;
 		}
+
 		@media screen and (min-width: $screen-dl) {
 			grid-template-columns: 54rem auto;
 		}
 	}
+
 	:is(&) &__side {
 		padding: 4rem 0 2.5rem;
+
 		@media screen and (min-width: $screen-d) {
 			height: 100%;
 			overflow: hidden;
 			padding: 6rem 0 6rem;
 		}
 	}
+
 	:is(&.layout_map) &__side {
 		@media screen and (min-width: $screen-d) {
 			margin: 0;
 			padding: 4rem 0;
 		}
 	}
+
 	:is(&.layout_contacts) &__side {
 		background: url('../img/bg__pattern_white.png') no-repeat top -40rem right -40rem, var(--mint_primary);
 		background-size: 124rem 124rem;
 		margin: 0 -1.5rem;
 		padding-left: 1.5rem;
 		padding-right: 1.5rem;
+
 		@media screen and (min-width: $screen-t) {
 			background: url('../img/bg__pattern_white.png') no-repeat top -50rem right -20rem, var(--mint_primary);
 			background-size: 124rem 124rem;
@@ -80,29 +97,35 @@
 			padding-left: 0;
 			padding-right: 0;
 		}
+
 		@media screen and (min-width: $screen-ti) {
 			background: url('../img/bg__pattern_white.png') no-repeat top -60rem right -10rem, var(--mint_primary);
 			background-size: 124rem 124rem;
 		}
+
 		@media screen and (min-width: $screen-tl) {
 			background: url('../img/bg__pattern_white.png') no-repeat top -60rem right -20rem, var(--mint_primary);
 			background-size: 124rem 124rem;
 		}
+
 		@media screen and (min-width: $screen-d) {
 			background: url('../img/bg__pattern_white.png') no-repeat top -60rem right -20rem, var(--mint_primary);
 			background-size: 124rem 124rem;
 		}
 	}
+
 	&__button {
 		@media screen and (min-width: $screen-d) {
 			display: none;
 		}
 	}
+
 	&__scroll {
 		display: none;
 		height: 100%;
 		overflow-y: auto;
 		position: relative;
+
 		@media screen and (min-width: $screen-d) {
 			display: block;
 			height: calc(100% - 10rem);
@@ -110,94 +133,119 @@
 			padding-right: 4rem;
 		}
 	}
+
 	&_catalog &__main {
 		padding: 0 0 6rem;
+
 		@media screen and (min-width: $screen-t) {
 			padding: 0 0 6rem;
 		}
+
 		@media screen and (min-width: $screen-d) {
 			padding: 6rem 0 10rem;
 		}
 	}
+
 	&_map &__main {
 		background: var(--mint_quaternary);
 		flex: 1 1 auto;
 		margin: 0 -1.5rem;
 		position: relative;
+
 		@media screen and (min-width: $screen-t) {
 			margin: 0 0 0 calc((100vw - $container-t) / 2 * -1);
 			width: 100vw;
 		}
+
 		@media screen and (min-width: $screen-ti) {
 			margin: 0 0 0 calc((100vw - $container-ti) / 2 * -1);
 		}
+
 		@media screen and (min-width: $screen-tl) {
 			margin: 0 0 0 calc((100vw - $container-tl) / 2 * -1);
 		}
+
 		@media screen and (min-width: $screen-d) {
 			margin: 0;
 			width: calc(100% + (100vw - $container-d) / 2);
 		}
+
 		@media screen and (min-width: $screen-dl) {
 			width: calc(100% + (100vw - $container-dl) / 2);
 		}
+
 		@media screen and (min-width: $screen-dxl) {
 			width: calc(100% + (100vw - $container-dxl) / 2);
 		}
+
 		.js-map {
 			height: 100%;
 			width: 100%;
 		}
+
 		.gm-style .gm-style-iw-c {
 			padding: 0;
 			background: none !important;
+			box-shadow: none !important;
 		}
+
 		.gm-style-iw-t button.gm-ui-hover-effect {
 			display: none !important;
 		}
+
 		.gm-style-iw-d {
 			overflow: visible !important;
 			max-width: unset !important;
 			max-height: unset !important;
 		}
+
 		.gm-style .gm-style-iw-t::after {
 			content: none !important;
 		}
 	}
+
 	&_contacts &__main {
 		background: var(--mint_quaternary);
 		height: 25rem;
 		margin: 0 -1.5rem;
+
 		@media screen and (min-width: $screen-t) {
 			height: 35rem;
 			margin: 0 0 0 calc((100vw - $container-t) / 2 * -1);
 			width: 100vw;
 		}
+
 		@media screen and (min-width: $screen-ti) {
 			height: 45rem;
 			margin: 0 0 0 calc((100vw - $container-ti) / 2 * -1);
 			width: 100vw;
 		}
+
 		@media screen and (min-width: $screen-tl) {
 			height: 100%;
 			margin: 0;
 			width: calc(100% + (100vw - $container-tl) / 2);
 		}
+
 		@media screen and (min-width: $screen-d) {
 			height: 55rem;
 			width: calc(100% + (100vw - $container-d) / 2);
 		}
+
 		@media screen and (min-width: $screen-dl) {
 			width: calc(100% + (100vw - $container-dl) / 2);
 		}
+
 		@media screen and (min-width: $screen-dxl) {
 			width: calc(100% + (100vw - $container-dxl) / 2);
 		}
 	}
+
 	&__icon {
 		height: 3rem;
 		width: 3rem;
 	}
+
 	&__map-actions {
 		display: grid;
 		gap: .5rem;
@@ -206,11 +254,13 @@
 		right: .5rem;
 		top: .5rem;
 		z-index: 2;
+
 		@media screen and (min-width: $screen-t) {
 			gap: 1rem;
 			right: 1rem;
 			top: 1rem;
 		}
+
 		@media screen and (min-width: $screen-d) {
 			grid-template-columns: 1fr;
 			gap: 1rem;
@@ -219,6 +269,7 @@
 			transform: translateY(-50%);
 		}
 	}
+
 	&__map-action {
 		background: var(--mint_primary);
 		border-radius: .5rem;
@@ -228,9 +279,9 @@
 		padding: .5rem;
 		transition: background .25s ease;
 		width: 4rem;
+
 		&:hover {
 			background: var(--mint_secondary);
 		}
 	}
 }
-

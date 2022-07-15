@@ -1,0 +1,14 @@
+// В этом файле должны быть стили для БЭМ-блока map-tooltip, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.map-tooltip {
+	background: var(--white_primary);
+	border: 1px solid var(--mint_secondary);
+	border-radius: 2rem;
+	box-shadow: var(--shadow_large);
+	color: var(--emerald_primary);
+	font-size: 1.5rem;
+	line-height: 1;
+	padding: 1rem 1.5rem;
+}

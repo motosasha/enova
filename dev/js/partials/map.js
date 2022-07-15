@@ -183,6 +183,9 @@ function initBasisMap() {
 						if (window.openedInfoWindow) {
 							window.openedInfoWindow.close();
 						}
+						if (window.openedtipInfoWindow) {
+							window.openedtipInfoWindow.close();
+						}
 						markers.forEach(m => {
 							m.setIcon(iconPath);
 						});
@@ -193,6 +196,7 @@ function initBasisMap() {
 						mobileInfoModal.classList.remove('map-card_open');
 						if (window.openedInfoWindow) {
 							window.openedInfoWindow.close();
+							window.infoWindowIsOpen = false;
 						}
 						markers.forEach(m => {
 							m.setIcon(iconPath);
@@ -236,6 +240,7 @@ function initBasisMap() {
 						google.maps.event.addListener(marker.iw, 'closeclick', function () {
 							marker.setIcon(iconPath);
 							resetMobileInfoModal();
+							window.infoWindowIsOpen = false;
 						});
 
 						google.maps.event.addListener(marker.iw, 'domready', function () {
@@ -244,6 +249,7 @@ function initBasisMap() {
 							closeButton.addEventListener('click', () => {
 								marker.setIcon(iconPath);
 								marker.iw.close();
+								window.infoWindowIsOpen = false;
 							});
 							// tippy.js
 							tippy('[data-tippy-content]');
@@ -272,6 +278,7 @@ function initBasisMap() {
 
 							if (window.openedInfoWindow) {
 								window.openedInfoWindow.close();
+								window.infoWindowIsOpen = false;
 							}
 
 							markers.forEach(marker => {
@@ -295,6 +302,7 @@ function initBasisMap() {
 
 							if (window.openedInfoWindow) {
 								window.openedInfoWindow.close();
+								window.infoWindowIsOpen = false;
 							}
 							map.setZoom(Number(initialZoom));
 							form.reset();
@@ -378,14 +386,17 @@ function initBasisMap() {
 				item
 			});
 
-			const infoWindow = getInfoWindow(item, key);
+			instance.jsKey = key;
 
+			// Обычное окно с информацией
+			const infoWindow = getInfoWindow(item, key);
 			instance.addListener("click", () => {
 				map.panTo(position);
 				// map.setZoom(Number(itemZoom)); // Если надо будет зумить при клике на метку
 
 				if (window.openedInfoWindow) {
 					window.openedInfoWindow.close();
+					window.infoWindowIsOpen = false;
 				}
 
 				if (!isMobile) {
@@ -395,12 +406,54 @@ function initBasisMap() {
 						shouldFocus: true,
 					});
 
+					window.infoWindowIsOpen = true;
+
 					window.openedInfoWindow = infoWindow;
+
+					if (window.openedtipInfoWindow) {
+						window.openedtipInfoWindow.close();
+					}
+				}
+			});
+			instance.iw = infoWindow;
+
+			// Окно с информацией на ховер
+			const tipInfoWindow = getTipInfoWindow(item, key);
+
+			instance.addListener('mouseover', function() {
+				if (!window.infoWindowIsOpen && !isMobile) {
+					tipInfoWindow.open({
+						anchor: instance,
+						animation: 'scale',
+						map,
+						shouldFocus: false,
+					});
+
+					window.openedtipInfoWindow = tipInfoWindow;
 				}
 			});
 
-			instance.iw = infoWindow;
-			instance.jsKey = key;
+			instance.addListener('mouseout', function() {
+				if (window.openedtipInfoWindow) {
+					window.openedtipInfoWindow.close();
+				}
+			});
+
+			return instance;
+		}
+
+		/**
+		 * Создаёт разметку окна с заголовком при ховере
+		 * @param {*} item
+		 * @param {*} key
+		 * @returns gmaps InfoWindow
+		 */
+		function getTipInfoWindow(item, key) {
+			let contentString = `<div class="map-tooltip" id="tipInfoWindow-${key}">${item.name}</div>`;
+			const instance = new google.maps.InfoWindow({
+				content: contentString,
+				pixelOffset: new google.maps.Size(0, -45)
+			});
 
 			return instance;
 		}
@@ -408,6 +461,7 @@ function initBasisMap() {
 		/**
 		 * Создаёт разметку окна с информацией
 		 * @param {*} item
+		 * @param {*} key
 		 * @returns gmaps InfoWindow
 		 */
 		function getInfoWindow(item, key) {

@@ -16,7 +16,9 @@ let config = {
 		'dev/scss/fonts.scss',
 		// 'somePackage/dist/somePackage.css', // для 'node_modules/somePackage/dist/somePackage.css',
 	],
-	'addStyleAfter': [],
+	'addStyleAfter': [
+		'dev/blocks/map-tooltip/map-tooltip.scss'
+	],
 	'addJsBefore': [
 		// 'somePackage/dist/somePackage.js', // для 'node_modules/somePackage/dist/somePackage.js',
 	],
