@@ -129,4 +129,21 @@ window.onload = function() {
 			item.classList.add('catalog-sections__item_active');
 		}, false)
 	})
+
+	// select
+	let selects = document.querySelectorAll('.select');
+	window.choicesArray = [];
+	for (let i = 0; i <  selects.length; ++i) {
+		const choices = new Choices(selects[i], {
+			itemSelectText: '',
+			searchEnabled: false,
+			shouldSort: false,
+			shouldSortItems: false,
+		});
+
+		window.choicesArray.push({
+			instance: choices,
+			defaultValue: "all"
+		});
+	}
 };

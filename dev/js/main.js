@@ -5,5 +5,6 @@
 //= ../../node_modules/tippy.js/dist/tippy-bundle.umd.js
 //= ../../node_modules/smooth-scroll/dist/smooth-scroll.js
 //= ../../node_modules/aos/dist/aos.js
+//= ../../node_modules/choices.js/public/assets/scripts/choices.js
 //= partials/map.js
 //= partials/user.js
