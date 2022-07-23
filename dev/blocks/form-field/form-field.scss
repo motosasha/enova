@@ -24,4 +24,17 @@
 			gap: .5rem;
 		}
 	}
+	&__image {
+		align-items: center;
+		display: flex;
+		gap: 1.6rem;
+		a {
+			color: var(--emerald_primary);
+			cursor: pointer;
+			text-decoration: none;
+			&:hover {
+				text-decoration: underline;
+			}
+		}
+	}
 }

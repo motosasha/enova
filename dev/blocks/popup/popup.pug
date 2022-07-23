@@ -21,6 +21,13 @@ mixin popup_callback
 							label.form-field__label Электронная почта
 							input.input(type='email')
 					.form__row
+						.form-field
+							label.form-field__label Каптча
+							.form-field__image
+								img.captcha_img(src='assets/img__captcha.jpg' alt='CAPTCHA')
+								a.reloadCaptcha Поменять картинку
+							input.input(type='text', placeholder='Введите текст с картинки', required)
+					.form__row
 						button.button.form__button Отправить
 					.form__row
 						small.form__small Заполняя форму вы даёте согласие на обработку #[a(href='#') персональных данных]
