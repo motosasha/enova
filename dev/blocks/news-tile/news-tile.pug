@@ -1,0 +1,29 @@
+//- Все примеси в этом файле должны начинаться c имени блока (news-tile)
+
+mixin news-tile(data, mods)
+
+	//- Принимает:
+	//- data {string} - данные
+	//- mods {string} - список модификаторов
+
+	//- Вызов:
+		+news-tile('Текст', 'some-mod')
+
+	-
+		// список модификаторов
+		let allMods = '';
+		if(typeof(mods) !== 'undefined' && mods) {
+			let modsList = mods.split(',');
+			for (let i = 0; i < modsList.length; i++) {
+				allMods = allMods + ' news-tile_' + modsList[i].trim();
+			}
+		}
+
+	.news-tile(class=allMods)&attributes(attributes)
+		img.news-tile__image(src='assets/img__news_0' + data.image + '.jpg', alt='')
+		.news-tile__inner
+			h3.news-tile__title!= data.title
+			.news-tile__lead!= data.lead
+			.news-tile__row
+				.news-tile__date!= data.date
+				a.news-tile__link(href='news-post.html') Читать далее

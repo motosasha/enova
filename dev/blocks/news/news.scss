@@ -1,0 +1,63 @@
+// В этом файле должны быть стили для БЭМ-блока news, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.news {
+	$block-name: &; // #{$block-name}__element
+	background-color: var(--mint_quaternary_25p);
+
+	&__inner {
+		display: flex;
+		flex-direction: column;
+		@media screen and (min-width: $screen-d) {
+			padding-bottom: 10rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			padding-bottom: 12.5rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			padding-bottom: 15rem;
+		}
+	}
+	&__row {
+		margin: 0 0 2rem;
+		@media screen and (min-width: $screen-ti) {
+			margin-bottom: 3rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			display: flex;
+			justify-content: space-between;
+		}
+	}
+	:is(.news) &__title {
+		margin: 0;
+	}
+	&__grid {
+		display: grid;
+		gap: 20px;
+		margin-bottom: 3rem;
+		position: relative;
+		@media screen and (min-width: $screen-ti) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (min-width: $screen-d) {
+			grid-template-columns: repeat(4, 1fr);
+			margin: 0;
+		}
+	}
+	&__button {
+		background-color: var(--white_primary);
+		display: none;
+		@media screen and (min-width: $screen-d) {
+			display: block;
+			margin-left: auto;
+		}
+		&_mobile {
+			display: block;
+			margin: 0 auto;
+			@media screen and (min-width: $screen-d) {
+				display: none;
+			}
+		}
+	}
+}

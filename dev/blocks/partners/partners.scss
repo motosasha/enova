@@ -3,17 +3,6 @@
 // Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
 
 .partners {
-	.section__inner {
-		@media screen and (min-width: $screen-d) {
-			padding-bottom: 10rem;
-		}
-		@media screen and (min-width: $screen-dl) {
-			padding-bottom: 12.5rem;
-		}
-		@media screen and (min-width: $screen-dxl) {
-			padding-bottom: 15rem;
-		}
-	}
 	&__grid {
 		display: grid;
 		gap: .5rem 4rem;

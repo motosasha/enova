@@ -60,10 +60,10 @@ block pageMain
 					.production__slider-controls
 						.production__slider-arrow.production__slider-prev.swiper-button-prev
 							svg.swiper-icon
-								use(xlink:href='img/svgSprite.svg#icon__shevron_left')
+								use(href='img/svgSprite.svg#icon__shevron_left')
 						.production__slider-arrow.production__slider-next.swiper-button-next
 							svg.swiper-icon
-								use(xlink:href='img/svgSprite.svg#icon__shevron_right')
+								use(href='img/svgSprite.svg#icon__shevron_right')
 				.production__slider
 					+production-slider([
 						{
@@ -103,8 +103,7 @@ block pageMain
 							'tank': 1
 						}
 					])
-				a.production__button.production__button_mobile.button.button_secondary(href='#') Перейти в каталог
-
+				a.production__button.production__button_mobile.button.button_secondary(href='catalog.html') Перейти в каталог
 	section.info(data-aos='fade-up', data-aos-duration='750')
 		.grid
 			.info__inner
@@ -167,3 +166,35 @@ block pageMain
 					{'logo': 'sng', 'delay': 900},
 					{'logo': 'lo', 'delay': 1000}
 				])
+	section.section.news(data-aos='fade-up', data-aos-duration='750')
+		.grid
+			.section__inner.news__inner
+				.news__row
+					h2.section__title.news__title Новости
+					a.news__button.button.button_secondary(href='news.html') Все новости
+				.news__grid
+					+news-tile({
+						image: '1',
+						title: 'В России нашли новый способ совместить газовую и солнечную энергию',
+						lead: 'Эффективный способ усовершенствования углеводородной энергетики за счет солнечной энергии предложили ученые СамГТУ. По их словам, предложенная технология позволит снизить расход метана и сделает солнечную энергетику более рентабельной. Результаты опубликованы в журнале International Journal of Hydrogen Energy',
+						date: '22.06.2023',
+					})
+					+news-tile({
+						image: '2',
+						title: 'В Турции обнаружены новые нефтяные месторождения',
+						lead: 'Эрдоган: на юго-востоке Турции обнаружены новые месторождения нефти',
+						date: '19.06.2023',
+					})
+					+news-tile({
+						image: '3',
+						title: 'Аналитик дал прогноз, вырастет ли спрос на бензин с началом дачного сезона',
+						lead: 'Аналитик Адамидов: спрос на бензин с началом дачного сезона вырастет в пределах 5%',
+						date: '19.06.2023',
+					})
+					+news-tile({
+						image: '4',
+						title: 'Рейтинг стран Европы по доступности бензина для населения',
+						lead: 'Максимальное количество бензина (более двух тысяч литров) на среднюю зарплату можно приобрести в Люксембурге, где цены на топливо относительно невысокие',
+						date: '19.06.2023',
+					})
+				a.news__button.production__button_mobile.button.button_secondary(href='news.html') Все новости

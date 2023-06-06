@@ -1,0 +1,57 @@
+// В этом файле должны быть стили для БЭМ-блока news-page, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.news-page {
+	$block-name: &; // #{$block-name}__element
+
+	background: url('../img/bg__pattern_emerald.png') no-repeat top -29rem center;
+	background-size: 98rem 98rem;
+	@media screen and (min-width: $screen-tl) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -100rem right -50rem;
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -145rem right -46rem;
+		background-size: 256rem 256rem;
+	}
+	&__inner {
+		padding: 4rem 0 5rem;
+		@media screen and (min-width: $screen-d) {
+			padding: 6rem 0;
+		}
+		@media screen and (min-width: $screen-dl) {
+			padding: 8rem 0;
+		}
+	}
+	&__grid {
+		display: grid;
+		gap: 20px;
+		margin-bottom: 3rem;
+		position: relative;
+		@media screen and (min-width: $screen-ti) {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media screen and (min-width: $screen-d) {
+			grid-template-columns: repeat(4, 1fr);
+			margin: 0;
+		}
+	}
+	&__actions {
+		display: flex;
+		gap: 1.5rem;
+		justify-content: center;
+		margin-top: 2.5rem;
+		@media screen and (min-width: $screen-ti) {
+			gap: 2rem;
+		}
+		@media screen and (min-width: $screen-tl) {
+			margin-top: 3.5rem;
+		}
+		@media screen and (min-width: $screen-dxl) {
+			gap: 2rem;
+		}
+		> * {
+			flex: 1 0 auto;
+		}
+	}
+}

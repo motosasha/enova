@@ -1,0 +1,238 @@
+// В этом файле должны быть стили для БЭМ-блока news-post, его элементов,
+// модификаторов, псевдоселекторов, псевдоэлементов, @media-условий...
+// Очередность: http://nicothin.github.io/idiomatic-pre-CSS/#priority
+
+.news-post {
+	$block-name: &; // #{$block-name}__element
+
+	background: url('../img/bg__pattern_emerald.png') no-repeat top -29rem center;
+	background-size: 98rem 98rem;
+	@media screen and (min-width: $screen-tl) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -100rem right -50rem;
+	}
+	@media screen and (min-width: $screen-d) {
+		background: url('../img/bg__pattern_emerald.png') no-repeat top -145rem right -46rem;
+		background-size: 256rem 256rem;
+	}
+	&__inner {
+		padding: 4rem 0 5rem;
+		@media screen and (min-width: $screen-d) {
+			padding: 6rem 0;
+		}
+		@media screen and (min-width: $screen-dl) {
+			display: grid;
+			grid-template-columns: 27rem auto;
+			padding: 8rem 0;
+		}
+	}
+	&__info {
+		margin-top: 1.5rem;
+		position: relative;
+		@media screen and (min-width: $screen-d) {
+			margin-top: 3rem;
+		}
+		@media screen and (min-width: $screen-dl) {
+			margin: 0;
+		}
+	}
+	&__icon {
+		fill: var(--mint_primary);
+		display: none;
+		height: 19rem;
+		position: absolute;
+		right: 0;
+		top: -1rem;
+		width: 19rem;
+		@media screen and (min-width: $screen-d) {
+			display: block;
+		}
+	}
+	&__title {
+		color: var(--emerald_primary);
+		font-size: 2.5rem;
+		font-weight: 300;
+		letter-spacing: 0.01em;
+		line-height: 1.4;
+		margin: 0;
+		max-width: 106rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 4.5rem;
+			line-height: 1.2334;
+		}
+		@media screen and (min-width: $screen-d) {
+			width: calc(100% - 20rem);
+		}
+	}
+	&__row {
+		display: flex;
+		flex-direction: column;
+		gap: 1.5rem;
+		margin: 2.5rem 0 3rem;
+		@media screen and (min-width: $screen-t) {
+			align-items: center;
+			flex-direction: row;
+			gap: 5rem;
+			margin: 2.5rem 0 5rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			margin: 5rem 0 8rem;
+		}
+	}
+	&__button {
+		margin: 0;
+		@media screen and (min-width: $screen-tl) {
+			max-width: 25rem;
+			width: 100%;
+		}
+	}
+	&__backto {
+		background: var(--mint_quaternary);
+		max-width: 20rem;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 1.5rem;
+		}
+		@media screen and (min-width: $screen-d) {
+			align-self: start;
+			justify-self: start;
+			padding: .9rem 3rem .9rem .9rem;
+		}
+	}
+	&__date {
+		color: var(--emerald_tertiary);
+		font-weight: 400;
+		font-size: 15px;
+		line-height: 1;
+		margin-top: 15px;
+	}
+	&__image {
+		border-radius: 5px;
+		display: block;
+		height: auto;
+		margin: 30px 0;
+		max-width: 790px;
+		width: 100%;
+		@media screen and (min-width: $screen-tl) {
+			margin-top: 50px;
+		}
+	}
+	&__lead {
+		color: var(--emerald_primary);
+		font-size: 15px;
+		font-style: italic;
+		font-weight: 300;
+		line-height: 1.5;
+		max-width: 790px;
+		@media screen and (min-width: $screen-tl) {
+			font-size: 20px;
+		}
+	}
+	&__article {
+		max-width: 790px;
+		p {
+			color: var(--emerald_primary);
+			font-size: 15px;
+			font-weight: 300;
+			line-height: 1.5;
+			margin: 15px 0;
+			@media screen and (min-width: $screen-tl) {
+				font-size: 20px;
+				margin: 20px 0;
+			}
+
+			strong {
+				font-weight: 700;
+			}
+		}
+		q {
+			font-style: italic;
+		}
+		ol,
+		ul {
+			display: grid;
+			gap: 5px;
+			list-style: none;
+			margin: -10px 0 30px;
+			padding: 0;
+			counter-reset: my-awesome-counter;
+		}
+		li {
+			counter-increment: my-awesome-counter;
+			color: var(--emerald_primary);
+			font-size: 15px;
+			font-weight: 300;
+			line-height: 1.5;
+			padding-left: 30px;
+			position: relative;
+			@media screen and (min-width: $screen-tl) {
+				font-size: 20px;
+				padding-left: 45px;
+			}
+		}
+		ol li::before {
+			color: var(--mint_primary);
+			content: counter(my-awesome-counter) ". ";
+			display: block;
+			left: 0;
+			position: absolute;
+			text-align: right;
+			top: 0;
+			width: 25px;
+			@media screen and (min-width: $screen-tl) {
+				width: 30px;
+			}
+		}
+		ul li::before {
+			background-color: var(--mint_primary);
+			border-radius: 50%;
+			content: '';
+			display: block;
+			height: 5px;
+			left: 10px;
+			position: absolute;
+			top: 9px;
+			width: 5px;
+		}
+		a {
+			color: var(--mint_primary);
+			font-size: inherit;
+			line-height: inherit;
+			text-decoration-line: underline;
+		}
+		figure {
+			border-left: 5px solid var(--mint_quaternary);
+			margin: 30px 0;
+			padding-left: 20px;
+			@media screen and (min-width: $screen-tl) {
+				border-left: 10px solid var(--mint_quaternary);
+				margin: 35px 0;
+				padding-left: 45px;
+			}
+			blockquote {
+				margin: 0;
+				p {
+					color: var(--emerald_secondary);
+					font-size: 15px;
+					font-weight: 400;
+					line-height: 1.6667;
+					letter-spacing: 0.01em;
+					margin: 0;
+					@media screen and (min-width: $screen-tl) {
+						font-size: 20px;
+						line-height: 1.5;
+					}
+				}
+			}
+			figcaption {
+				margin-top: 15px;
+				cite {
+					color: var(--emerald_tertiary);
+					font-weight: 400;
+					font-style: italic;
+					font-size: 15px;
+					line-height: 1.5;
+					letter-spacing: 0.01em;
+				}
+			}
+		}
+	}
+}
